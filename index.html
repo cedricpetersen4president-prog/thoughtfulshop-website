@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thoughtful Shop - Home</title>
+    <!-- Link to our global stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-link">
+                <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="logo-image">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="festivals.html" class="nav-link">Festivals</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Icons & Mobile Toggle -->
+            <div class="header-right">
+                <button class="icon-btn search-btn" aria-label="Search">
+                    <!-- Search Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="icon-btn cart-btn" aria-label="View Cart">
+                    <!-- Cart Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </button>
+                <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Menu" aria-expanded="false">
+                    <!-- Mobile Menu Icon (Hamburger) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+        <a href="products.html" class="mobile-nav-link">Products</a>
+        <a href="festivals.html" class="mobile-nav-link">Festivals</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Welcome to The Thoughtful Shop</h1>
+                <p class="hero-subtitle">Your source for carefully curated products, delivered with speed and reliability.</p>
+                <a href="products.html" class="btn btn-primary">Shop All Collections</a>
+            </div>
+        </section>
+
+        <!-- Category Banner Section (Interactive) -->
+        <section class="category-banner">
+            <div class="container">
+                <h2 class="section-title">Explore Our Niche Shops</h2>
+                <div class="category-grid">
+                    <!-- Card 1: Pet Supplies -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM21 12c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM9.5 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM3 12c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM12 4c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"></path><path d="M19.7 17.5c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.5 0-2.1l-1.4-1.4c-.6-.6-1.5-.6-2.1 0l-1.4 1.4c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0zM4.3 17.5c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.5 0-2.1l-1.4-1.4c-.6-.6-1.5-.6-2.1 0l-1.4 1.4c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0z"></path></svg>
+                        </div>
+                        <h3 class="card-title">Pet Supplies</h3>
+                        <p class="card-desc">Everything for your furry friends.</p>
+                    </a>
+                    <!-- Card 2: Tools & Hardware -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.5a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3 class="card-title">Tools & Hardware</h3>
+                        <p class="card-desc">For the DIYer and professional.</p>
+                    </a>
+                    <!-- Card 3: Health & Wellness -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
+                        <h3 class="card-title">Health & Wellness</h3>
+                        <p class="card-desc">Live your healthiest, happiest life.</p>
+                    </a>
+                    <!-- Card 4: Crafting Supplies -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.28 2.22a2.83 2.83 0 0 0-4 0L2.22 17.28a2.83 2.83 0 0 0 0 4L6.72 23.8a2.83 2.83 0 0 0 4 0L23.8 8.72a2.83 2.83 0 0 0 0-4L21.28 2.22z"></path><path d="M15.23 8.77l-4.06-4.06"></path><path d="M11.17 12.83l-4.06-4.06"></path></svg>
+                        </div>
+                        <h3 class="card-title">Crafting Supplies</h3>
+                        <p class="card-desc">Unleash your inner creativity.</p>
+                    </a>
+                    <!-- Card 5: Grocery / Dry Goods -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"></path><path d="M20 6c0-2.2-1.8-4-4-4H8C5.8 2 4 3.8 4 6v3h16V6z"></path><path d="M12 14v4"></path><path d="M8 14v4"></path><path d="M16 14v4"></path></svg>
+                        </div>
+                        <h3 class="card-title">Grocery & Dry Goods</h3>
+                        <p class="card-desc">Pantry staples, delivered.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Trending Products</h2>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Premium Dog Food</h3>
+                            <p class="product-price">$59.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Cordless Drill Set</h3>
+                            <p class="product-price">$129.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Organic Vitamin C</h3>
+                            <p class="product-price">$24.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Watercolor Paint Set</h3>
+                            <p class="product-price">$34.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div class="footer-col">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="footer-logo">
+                    <p class="footer-desc">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
+                </div>
+                <!-- Our Niche Shops -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Our Niche Shops</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Pet Supplies</a></li>
+                        <li><a href="#">Tools & Hardware</a></li>
+                        <li><a href="#">Health & Wellness</a></li>
+                        <li><a href="#">Crafting Supplies</a></li>
+                        <li><a href="#">Grocery & Dry Goods</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links contact-info">
+                        <li>Email: support@thoughtfulshop.com</li>
+                        <li>Phone: (800) 555-1234</li>
+                        <li>123 Thoughtful Way, Suite 100</li>
+                        <li>Anytown, USA 12345</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="copyright">
+                &copy; 2025 The Thoughtful Shop. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to our global JavaScript file -->
+    <script src="script.js" defer></script>
+</body>
+</html>
