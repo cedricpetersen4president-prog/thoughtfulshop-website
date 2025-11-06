@@ -1,447 +1,750 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Thoughtful Shop | Curated E-commerce Brands</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>The Thoughtful Shop - Home</title>
+    
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Merged Global Stylesheet -->
     <style>
-        @layer base {
-            body {
-                font-family: 'Inter', sans-serif;
-            }
-            /* --- Brand Color & Text Styles --- */
-            .text-brand-dark { color: #1F2937; }
-            .text-brand-logo { color: #DC2626; }
-            .bg-brand-dark { background-color: #DC2626; }
-            .text-brand-accent { color: #DC2626; }
-            input:focus, textarea:focus { --tw-ring-color: #DC2626; }
+        /* * Global Stylesheet for The Thoughtful Shop
+         * Using custom CSS properties (variables) for brand colors
+         */
 
-            /* --- Creative Header & Navigation --- */
-            .header {
-                transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            }
-            .header.scrolled {
-                @apply py-2 shadow-lg bg-white/95;
-            }
+        :root {
+            --primary-dark: #10182A;
+            --primary-gold: #AE9673;
+            --white: #FFFFFF;
+            --gray-light: #f8f9fa;
+            --gray-medium: #e9ecef;
+            --gray-dark: #6c757d;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.07), 0 6px 12px 0 rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-            .desktop-nav {
-                position: relative;
+        /* --- Global Reset & Body --- */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--white);
+            color: var(--primary-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        main {
+            flex-grow: 1; /* Ensures footer sticks to bottom */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* --- Buttons --- */
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--primary-dark);
+        }
+
+        /* --- Header & Navigation --- */
+
+        .site-header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-medium);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo-image {
+            height: 35px; /* Adjust as needed */
+            display: block;
+        }
+
+        .main-nav {
+            display: none; /* Hidden on mobile */
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 1.75rem 1rem; /* Aligns with 80px header height */
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+            border-bottom-color: var(--primary-gold);
+        }
+
+        .nav-link.active {
+            color: var(--primary-gold);
+            border-bottom-color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-dark);
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            color: var(--primary-dark);
+            background-color: var(--gray-light);
+        }
+
+        .mobile-menu-toggle {
+            display: block; /* Visible on mobile */
+        }
+
+        /* --- Mobile Navigation --- */
+
+        .mobile-nav {
+            display: none; /* Hidden by default */
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+            border-top: 1px solid var(--gray-medium);
+        }
+
+        .mobile-nav.active {
+            display: block; /* Shown by JS */
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: var(--primary-gold);
+            background-color: var(--gray-light);
+        }
+
+
+        /* --- Hero Section --- */
+
+        .hero {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-medium);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .btn-primary:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            border-color: var(--white);
+        }
+
+        /* --- Section Base --- */
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .category-banner,
+        .featured-products {
+            padding: 4rem 0;
+        }
+
+        .featured-products {
+            background-color: var(--gray-light);
+        }
+
+        /* --- Interactive Category Banner --- */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border: 1px solid var(--gray-medium);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-dark);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-gold);
+        }
+
+        .card-icon {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        /* --- Product Grid --- */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            background-color: var(--gray-light);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .product-card .btn {
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+
+        .site-footer-main {
+            background-color: var(--primary-dark);
+            color: var(--gray-medium);
+            padding: 4rem 0 2rem;
+            margin-top: auto; /* Sticks to bottom */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            height: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a,
+        .contact-info li {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--gray-medium);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .contact-info {
+            font-style: normal;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #3a4150; /* Darker than footer bg */
+            padding-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        /* --- Toast Notification --- */
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%, 150%); /* Start off-screen */
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            font-weight: 500;
+        }
+
+        .toast-notification.show {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+
+        /* --- Responsive Media Queries --- */
+
+        @media (min-width: 769px) {
+            .main-nav {
+                display: block; /* Show desktop nav */
             }
-            .nav-link {
-                @apply text-gray-600 hover:text-gray-900 relative z-10 py-2 transition-colors duration-300;
+            .mobile-menu-toggle {
+                display: none; /* Hide hamburger */
             }
-            /* The moving pill indicator */
-            .nav-indicator {
-                position: absolute;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background-color: #FEE2E2; /* Light red pill */
-                border-radius: 9999px;
-                z-index: 0;
-                transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth, bouncy transition */
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
-            /* --- Full Screen Mobile Menu --- */
-            #mobile-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%); /* Subtle gradient */
-                z-index: 100;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                /* Start fully transparent and scaled down */
-                opacity: 0;
-                transform: scale(0.95);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                pointer-events: none; /* Not interactive when hidden */
+            .footer-grid {
+                grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
             }
-            #mobile-menu.open {
-                opacity: 1;
-                transform: scale(1);
-                pointer-events: auto; /* Interactive when open */
-            }
-            #mobile-menu .nav-link {
-                @apply text-3xl font-bold text-gray-800 py-3;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-            /* Staggered animation for links */
-            #mobile-menu.open .nav-link:nth-child(1) { transition-delay: 0.1s; }
-            #mobile-menu.open .nav-link:nth-child(2) { transition-delay: 0.15s; }
-            #mobile-menu.open .nav-link:nth-child(3) { transition-delay: 0.2s; }
-            #mobile-menu.open .nav-link:nth-child(4) { transition-delay: 0.25s; }
-            #mobile-menu.open .nav-link:nth-child(5) { transition-delay: 0.3s; }
-            #mobile-menu.open .nav-link {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        }
 
-            /* --- Animated Hamburger Button --- */
-            #mobile-menu-button {
-                @apply z-[101]; /* Ensure it's above other header content */
-            }
-            .hamburger-line {
-                @apply w-6 h-0.5 bg-gray-800 rounded-full;
-                transition: transform 0.3s ease, opacity 0.2s ease;
-            }
-            body.menu-open .hamburger-line-top {
-                transform: translateY(0.5rem) rotate(45deg);
-            }
-            body.menu-open .hamburger-line-middle {
-                opacity: 0;
-            }
-            body.menu-open .hamburger-line-bottom {
-                transform: translateY(-0.5rem) rotate(-45deg);
-            }
-
-            /* Prevent body scroll when menu is open */
-            body.menu-open {
-                overflow: hidden;
-            }
-            
-            /* --- General Button & Card Styles --- */
-            .cta-button, .secondary-button {
-                background-color: #DC2626;
-                color: #FFFFFF;
-                transition: background-color 0.3s ease, transform 0.2s ease;
-            }
-            .cta-button:hover, .secondary-button:hover {
-                background-color: #B91C1C;
-                transform: translateY(-2px);
-            }
-            .product-card, .festival-card {
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-            .product-card:hover, .festival-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            }
-            .filter-btn.active {
-                background-color: #DC2626;
-                color: white;
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr; /* 1 column on mobile */
             }
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
-
-    <!-- Full Screen Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden">
-        <button id="mobile-menu-close-button" class="absolute top-6 right-6 z-[102]">
-            <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <div class="flex flex-col items-center">
-            <a href="#home" data-page="page-home" class="nav-link">Home</a>
-            <a href="#products" data-page="page-products" class="nav-link">Products</a>
-            <a href="#festivals" data-page="page-festivals" class="nav-link">Local Festivals</a>
-            <a href="#about" data-page="page-about" class="nav-link">About Us</a>
-            <a href="#contact" data-page="page-contact" class="nav-link">Contact Us</a>
-        </div>
-    </div>
+<body>
 
     <!-- Header -->
-    <header class="header bg-white/80 backdrop-blur-md sticky top-0 z-50 py-4">
-        <nav class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#home" data-page="page-home" class="text-2xl font-bold text-brand-logo">The Thoughtful Shop</a>
-            
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-8 desktop-nav">
-                <div class="nav-indicator"></div>
-                <a href="#home" data-page="page-home" class="nav-link">Home</a>
-                <a href="#products" data-page="page-products" class="nav-link">Products</a>
-                <a href="#festivals" data-page="page-festivals" class="nav-link">Local Festivals</a>
-                <a href="#about" data-page="page-about" class="nav-link">About Us</a>
-                <a href="#contact" data-page="page-contact" class="nav-link">Contact Us</a>
-            </div>
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-link">
+                <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="logo-image">
+            </a>
 
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden flex flex-col space-y-1.5">
-                <span class="hamburger-line hamburger-line-top"></span>
-                <span class="hamburger-line hamburger-line-middle"></span>
-                <span class="hamburger-line hamburger-line-bottom"></span>
-            </button>
-        </nav>
+            <!-- Desktop Navigation -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="festivals.html" class="nav-link">Festivals</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Icons & Mobile Toggle -->
+            <div class="header-right">
+                <button class="icon-btn search-btn" aria-label="Search">
+                    <!-- Search Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="icon-btn cart-btn" aria-label="View Cart">
+                    <!-- Cart Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </button>
+                <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Menu" aria-expanded="false">
+                    <!-- Mobile Menu Icon (Hamburger) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
     </header>
 
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+        <a href="products.html" class="mobile-nav-link">Products</a>
+        <a href="festivals.html" class="mobile-nav-link">Festivals</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </nav>
+
+    <!-- Main Content -->
     <main>
-        <!-- Home Page Content -->
-        <section id="page-home" class="page-content">
-            <!-- Hero Section -->
-            <div class="bg-white">
-                <div class="container mx-auto px-6 py-20 text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-brand-dark">A Curated Family of Brands.</h1>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">We offer a diverse portfolio of niche e-commerce stores, backed by robust logistics, perfect for distributors seeking reliable partners beyond the usual marketplaces.</p>
-                    <a href="#products" data-page="page-products" class="cta-button inline-block px-8 py-3 rounded-lg font-semibold">Explore Our Products</a>
-                </div>
-            </div>
-
-            <!-- Niche Store Showcase -->
-            <div class="container mx-auto px-6 py-16">
-                <h2 class="text-3xl font-bold text-center mb-10 text-brand-dark">Our Family of Brands</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-                    <!-- Brand Cards -->
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center"><h3 class="font-bold text-xl mb-2 text-brand-dark">Thoughtful Pet Supplies</h3><p class="text-gray-600 text-sm">Premium supplies for your beloved companions.</p></div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center"><h3 class="font-bold text-xl mb-2 text-brand-dark">Thoughtful Tools & Hardware</h3><p class="text-gray-600 text-sm">Reliable tools for every project and repair.</p></div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center"><h3 class="font-bold text-xl mb-2 text-brand-dark">Thoughtful Health & Wellness</h3><p class="text-gray-600 text-sm">Products to support your journey to health and balance.</p></div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center"><h3 class="font-bold text-xl mb-2 text-brand-dark">Thoughtful Crafting Supplies</h3><p class="text-gray-600 text-sm">Everything you need for your creative passions.</p></div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center"><h3 class="font-bold text-xl mb-2 text-brand-dark">Thoughtful Grocery / Dry Goods</h3><p class="text-gray-600 text-sm">Quality pantry staples and dry goods for your kitchen.</p></div>
-                </div>
-            </div>
-
-            <!-- Bridge to Local Section -->
-            <div class="bg-white">
-                <div class="container mx-auto px-6 py-16">
-                    <div class="text-center">
-                        <h2 class="text-3xl font-bold text-brand-dark">More Than Just E-commerce</h2>
-                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">We believe in community and connection. That's why we actively participate in local festivals, offering a touchpoint for our brick-and-mortar-leaning partners.</p>
-                        <a href="#festivals" data-page="page-festivals" class="cta-button inline-block mt-8 px-8 py-3 rounded-lg font-semibold">See Us in The Community</a>
-                    </div>
-                </div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Welcome to The Thoughtful Shop</h1>
+                <p class="hero-subtitle">Your source for carefully curated products, delivered with speed and reliability.</p>
+                <a href="products.html" class="btn btn-primary">Shop All Collections</a>
             </div>
         </section>
 
-        <!-- Products Page Content -->
-        <section id="page-products" class="page-content hidden">
-            <div class="container mx-auto px-6 py-16">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold text-brand-dark">Our Product Catalog</h1>
-                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Explore a selection of products from our family of brands, all fulfilled via Amazon MCF for reliable, multi-channel distribution.</p>
-                </div>
-
-                <!-- Product Filters -->
-                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12" id="product-filters">
-                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold" data-filter="all">All Stores</button>
-                    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-full text-sm font-semibold" data-filter="pet">Pet Supplies</button>
-                    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-full text-sm font-semibold" data-filter="tools">Tools & Hardware</button>
-                    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-full text-sm font-semibold" data-filter="health">Health & Wellness</button>
-                    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-full text-sm font-semibold" data-filter="crafting">Crafting Supplies</button>
-                    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-full text-sm font-semibold" data-filter="grocery">Grocery</button>
-                </div>
-                
-                <!-- Product Grid -->
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- Product Items -->
-                    <div class="product-item" data-category="pet"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/e0f2f1/333?text=Dog+Bed" alt="Orthopedic Dog Bed" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Pet Supplies</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Orthopedic Memory Foam Dog Bed</h3><p class="mt-2 font-semibold text-brand-dark">$75.00</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="tools"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/eceff1/333?text=Wrench+Set" alt="Wrench Set" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Tools & Hardware</span><h3 class="font-bold text-lg mt-1 text-brand-dark">24-Piece Ratcheting Wrench Set</h3><p class="mt-2 font-semibold text-brand-dark">$89.99</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="health"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/f3e5f5/333?text=Yoga+Mat" alt="Yoga Mat" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Health & Wellness</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Eco-Friendly Premium Yoga Mat</h3><p class="mt-2 font-semibold text-brand-dark">$45.00</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="crafting"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/fff8e1/333?text=Yarn+Bundle" alt="Yarn Bundle" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Crafting Supplies</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Merino Wool Yarn Bundle (5-pack)</h3><p class="mt-2 font-semibold text-brand-dark">$38.50</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="grocery"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/fbe9e7/333?text=Organic+Flour" alt="Organic Flour" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Grocery / Dry Goods</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Organic All-Purpose Flour (5kg)</h3><p class="mt-2 font-semibold text-brand-dark">$19.00</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="pet"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/e0f2f1/333?text=Cat+Tree" alt="Cat Tree" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Pet Supplies</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Multi-Level Cat Tower & Condo</h3><p class="mt-2 font-semibold text-brand-dark">$120.00</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="tools"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/eceff1/333?text=Drill+Set" alt="Cordless Drill Set" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Tools & Hardware</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Cordless Drill Driver Kit</h3><p class="mt-2 font-semibold text-brand-dark">$155.00</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                    <div class="product-item" data-category="health"><div class="product-card bg-white rounded-lg overflow-hidden shadow-lg"><img src="https://placehold.co/400x300/f3e5f5/333?text=Vitamins" alt="Vitamins" class="w-full h-48 object-cover"><div class="p-6"><span class="text-xs text-brand-accent font-semibold">Health & Wellness</span><h3 class="font-bold text-lg mt-1 text-brand-dark">Daily Multivitamin (90-day supply)</h3><p class="mt-2 font-semibold text-brand-dark">$22.50</p><button class="w-full mt-4 secondary-button border-2 rounded-lg py-2">View Product</button></div></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Festivals Page Content -->
-        <section id="page-festivals" class="page-content hidden">
-            <div class="container mx-auto px-6 py-16">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold text-brand-dark">Community & Local Events</h1>
-                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">We're proud to be part of the local community. Find us at these upcoming festivals and events in and around Pretoria to meet our team and see our products.</p>
-                </div>
-                
-                <div class="max-w-4xl mx-auto space-y-8">
-                    <!-- Festival Cards -->
-                    <div class="festival-card bg-white rounded-lg shadow-lg overflow-hidden md:flex"><img src="https://placehold.co/400x300/dcedc8/333?text=Jacaranda+Festival" alt="Jacaranda Festival" class="w-full md:w-1/3 object-cover"><div class="p-6 md:p-8 flex flex-col justify-center"><span class="text-sm font-semibold text-brand-accent">October 5-7, 2025</span><h3 class="font-bold text-2xl mt-2 text-brand-dark">Pretoria Jacaranda Festival</h3><p class="text-gray-600 mt-3">Join us for the city's most beautiful festival. We'll be showcasing our Health & Wellness and Crafting Supplies brands. A perfect family day out!</p></div></div>
-                    <div class="festival-card bg-white rounded-lg shadow-lg overflow-hidden md:flex"><img src="https://placehold.co/400x300/c5cae9/333?text=Spring+Market" alt="Spring Market" class="w-full md:w-1/3 object-cover"><div class="p-6 md:p-8 flex flex-col justify-center"><span class="text-sm font-semibold text-brand-accent">September 20-22, 2025</span><h3 class="font-bold text-2xl mt-2 text-brand-dark">Gauteng Spring Market</h3><p class="text-gray-600 mt-3">We're kicking off the spring season at the Gauteng Market. Come check out our latest products from Thoughtful Tools & Hardware and Pet Supplies.</p></div></div>
-                    <div class="festival-card bg-white rounded-lg shadow-lg overflow-hidden md:flex"><img src="https://placehold.co/400x300/ffecb3/333?text=Food+Fair" alt="Food Fair" class="w-full md:w-1/3 object-cover"><div class="p-6 md:p-8 flex flex-col justify-center"><span class="text-sm font-semibold text-brand-accent">November 15-16, 2025</span><h3 class="font-bold text-2xl mt-2 text-brand-dark">Pretoria Food & Dry Goods Fair</h3><p class="text-gray-600 mt-3">A celebration of local and artisanal food. We will have a dedicated stall for our Thoughtful Grocery / Dry Goods, with samples and special event pricing.</p></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Page Content -->
-        <section id="page-about" class="page-content hidden">
-             <div class="bg-white py-16">
-                <div class="container mx-auto px-6">
-                    <div class="max-w-4xl mx-auto">
-                        <div class="text-center">
-                            <h1 class="text-4xl font-bold text-brand-dark">Bridging Digital Commerce and Traditional Distribution</h1>
-                            <p class="text-lg text-gray-600 mt-4">We are more than just a collection of online stores; we are a strategic partner for growth.</p>
+        <!-- Category Banner Section (Interactive) -->
+        <section class="category-banner">
+            <div class="container">
+                <h2 class="section-title">Explore Our Niche Shops</h2>
+                <div class="category-grid">
+                    <!-- Card 1: Pet Supplies -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM21 12c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM9.5 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM3 12c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM12 4c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"></path><path d="M19.7 17.5c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.5 0-2.1l-1.4-1.4c-.6-.6-1.5-.6-2.1 0l-1.4 1.4c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0zM4.3 17.5c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.s 0-2.1l-1.4-1.4c-.6-.6-1.5-.6-2.1 0l-1.4 1.4c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0z"></path></svg>
                         </div>
-                        <div class="mt-12 text-left text-gray-700 space-y-6 leading-relaxed">
-                            <p>The Thoughtful Shop was founded on a simple premise: the future of retail is a thoughtful blend of digital efficiency and human connection. In a world increasingly dominated by monolithic online marketplaces, we saw an opportunity to build a different kind of e-commerce ecosystem—one built on curated quality, operational excellence, and genuine partnership.</p>
-                            <p>Our founder, drawing from a unique background in Human Resources, Branding, and Digital Marketing, envisioned a central hub that could support a diverse family of niche brands. Each brand, from Pet Supplies to Crafting goods, is managed with a deep understanding of its specific market and customer base. This focused approach allows us to achieve a level of quality and authenticity that larger platforms cannot match.</p>
-                            <p>For our distribution partners, we offer the best of both worlds. The efficiency of a centralized ordering and fulfillment system powered by Amazon's Multi-Channel Fulfillment (MCF) network, combined with the personal touch and market understanding of a dedicated brand partner. We understand the challenges and opportunities in the brick-and-mortar space, and we are committed to building relationships that are mutually beneficial and built on trust.</p>
-                            <p>We are a team of brand builders, logistics experts, and marketing professionals dedicated to a thoughtful approach to commerce. We invite you to grow with us.</p>
+                        <h3 class="card-title">Pet Supplies</h3>
+                        <p class="card-desc">Everything for your furry friends.</p>
+                    </a>
+                    <!-- Card 2: Tools & Hardware -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.5a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3 class="card-title">Tools & Hardware</h3>
+                        <p class="card-desc">For the DIYer and professional.</p>
+                    </a>
+                    <!-- Card 3: Health & Wellness -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
+                        <h3 class="card-title">Health & Wellness</h3>
+                        <p class="card-desc">Live your healthiest, happiest life.</p>
+                    </a>
+                    <!-- Card 4: Crafting Supplies -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.28 2.22a2.83 2.83 0 0 0-4 0L2.22 17.28a2.83 2.83 0 0 0 0 4L6.72 23.8a2.83 2.83 0 0 0 4 0L23.8 8.72a2.83 2.83 0 0 0 0-4L21.28 2.22z"></path><path d="M15.23 8.77l-4.06-4.06"></path><path d="M11.17 12.83l-4.06-4.06"></path></svg>
+                        </div>
+                        <h3 class="card-title">Crafting Supplies</h3>
+                        <p class="card-desc">Unleash your inner creativity.</p>
+                    </a>
+                    <!-- Card 5: Grocery / Dry Goods -->
+                    <a href="#" class="category-card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"></path><path d="M20 6c0-2.2-1.8-4-4-4H8C5.8 2 4 3.8 4 6v3h16V6z"></path><path d="M12 14v4"></path><path d="M8 14v4"></path><path d="M16 14v4"></path></svg>
+                        </div>
+                        <h3 class="card-title">Grocery & Dry Goods</h3>
+                        <p class="card-desc">Pantry staples, delivered.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Trending Products</h2>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Premium Dog Food</h3>
+                            <p class="product-price">$59.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Cordless Drill Set</h3>
+                            <p class="product-price">$129.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Organic Vitamin C</h3>
+                            <p class="product-price">$24.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="product-image">
+                        <div class="product-content">
+                            <h3 class="product-title">Watercolor Paint Set</h3>
+                            <p class="product-price">$34.99</p>
+                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Page Content -->
-        <section id="page-contact" class="page-content hidden">
-             <div class="py-16">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-12">
-                        <h1 class="text-4xl font-bold text-brand-dark">Get In Touch</h1>
-                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">We welcome inquiries from potential distribution partners, brands, and customers. Please use the form below to reach out to our team.</p>
-                    </div>
-
-                    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                        <form id="contact-form">
-                            <div class="mb-4"><label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label><input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required></div>
-                            <div class="mb-4"><label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label><input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required></div>
-                            <div class="mb-4"><label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label><input type="text" id="subject" name="subject" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required></div>
-                            <div class="mb-4"><label for="message" class="block text-gray-700 font-semibold mb-2">Message</label><textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2" required></textarea></div>
-                            <button type="submit" class="cta-button w-full px-8 py-3 rounded-lg font-semibold">Send Message</button>
-                        </form>
-                         <div id="form-success-message" class="hidden mt-4 text-center p-4 bg-green-100 text-green-800 rounded-lg">
-                            Thank you for your message! We will get back to you shortly.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-white">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2025 The Thoughtful Shop. All Rights Reserved.</p>
-            <p class="text-sm text-gray-400 mt-2">A partner for modern distribution.</p>
+    <footer class="site-footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div class="footer-col">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="footer-logo">
+                    <p class="footer-desc">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
+                </div>
+                <!-- Our Niche Shops -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Our Niche Shops</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Pet Supplies</a></li>
+                        <li><a href="#">Tools & Hardware</a></li>
+                        <li><a href="#">Health & Wellness</a></li>
+                        <li><a href="#">Crafting Supplies</a></li>
+                        <li><a href="#">Grocery & Dry Goods</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links contact-info">
+                        <li>Email: support@thoughtfulshop.com</li>
+                        <li>Phone: (800) 555-1234</li>
+                        <li>123 Thoughtful Way, Suite 100</li>
+                        <li>Anytown, USA 12345</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="copyright">
+                &copy; 2025 The Thoughtful Shop. All rights reserved.
+            </div>
         </div>
     </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const body = document.body;
-            const header = document.querySelector('.header');
-            
-            // --- Mobile Menu Logic ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    body.classList.add('menu-open');
-                    mobileMenu.classList.add('open');
+
+    <!-- Merged Global JavaScript -->
+    <script defer>
+        /**
+         * Global JavaScript for The Thoughtful Shop
+         */
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            if (menuToggle && mobileNav) {
+                menuToggle.addEventListener('click', () => {
+                    // Toggle the 'active' class to show/hide the menu
+                    mobileNav.classList.toggle('active');
+
+                    // Toggle ARIA attributes for accessibility
+                    const isExpanded = mobileNav.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
                 });
             }
 
-            if (mobileMenuCloseButton && mobileMenu) {
-                mobileMenuCloseButton.addEventListener('click', () => {
-                    body.classList.remove('menu-open');
-                    mobileMenu.classList.remove('open');
-                });
-            }
-
-            // --- Shrinking Header on Scroll ---
-            const scrollObserver = new IntersectionObserver(
-                ([e]) => header.classList.toggle('scrolled', e.intersectionRatio < 1),
-                { threshold: [1] }
-            );
-            if(header) scrollObserver.observe(header);
-
-            // --- Single Page Navigation Logic ---
-            const navLinks = document.querySelectorAll('a[data-page]');
-            const pageContents = document.querySelectorAll('.page-content');
-            const desktopNav = document.querySelector('.desktop-nav');
-            const navIndicator = desktopNav ? desktopNav.querySelector('.nav-indicator') : null;
-
-            function switchPage(pageId, linkElement) {
-                pageContents.forEach(page => page.classList.add('hidden'));
-                const targetPage = document.getElementById(pageId);
-                if (targetPage) {
-                    targetPage.classList.remove('hidden');
-                    window.scrollTo(0, 0); // Scroll to top on page change
-                }
-
-                // Update active state for desktop indicator
-                if (desktopNav && navIndicator) {
-                    const activeDesktopLink = desktopNav.querySelector(`a[data-page="${pageId}"]`);
-                    document.querySelectorAll('.desktop-nav .nav-link').forEach(l => l.classList.remove('active-link'));
+            // --- Add to Cart Notification ---
+            const cartButtons = document.querySelectorAll('.add-to-cart-btn');
+            cartButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // Stop if it's a link
                     
-                    if (activeDesktopLink) {
-                        activeDesktopLink.classList.add('active-link');
-                        const { offsetLeft, offsetWidth } = activeDesktopLink;
-                        navIndicator.style.width = `${offsetWidth}px`;
-                        navIndicator.style.transform = `translateX(${offsetLeft}px)`;
-                    } else {
-                        navIndicator.style.width = `0px`;
-                    }
-                }
-                
-                // Close mobile menu after navigation
-                body.classList.remove('menu-open');
-                mobileMenu.classList.remove('open');
-            }
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const pageId = link.getAttribute('data-page');
-                    switchPage(pageId);
+                    // Get product name
+                    const productCard = button.closest('.product-card');
+                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    
+                    showToast(`${productTitle} added to cart!`);
                 });
             });
 
-            // --- Desktop Nav Hover Indicator Logic ---
-            if (desktopNav) {
-                const desktopLinks = desktopNav.querySelectorAll('.nav-link');
-                desktopLinks.forEach(link => {
-                    link.addEventListener('mouseenter', (e) => {
-                        const { offsetLeft, offsetWidth } = e.target;
-                        navIndicator.style.width = `${offsetWidth}px`;
-                        navIndicator.style.transform = `translateX(${offsetLeft}px)`;
-                    });
-                });
-                
-                desktopNav.addEventListener('mouseleave', () => {
-                    const activeLink = desktopNav.querySelector('.active-link');
-                    if (activeLink) {
-                        const { offsetLeft, offsetWidth } = activeLink;
-                        navIndicator.style.width = `${offsetWidth}px`;
-                        navIndicator.style.transform = `translateX(${offsetLeft}px)`;
-                    } else {
-                         navIndicator.style.width = `0px`;
-                    }
-                });
-            }
-            
-            // Set initial page state
-            switchPage('page-home');
-
-            // --- Product Filter Logic ---
-            if (document.getElementById('product-filters')) {
-                const filterButtons = document.querySelectorAll('.filter-btn');
-                const productItems = document.querySelectorAll('.product-item');
-
-                filterButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        filterButtons.forEach(btn => btn.classList.remove('active'));
-                        button.classList.add('active');
-                        const filter = button.dataset.filter;
-                        productItems.forEach(item => {
-                            item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
-                        });
-                    });
-                });
-            }
-            
-            // --- Contact Form Logic ---
-            if (document.getElementById('contact-form')) {
-                const contactForm = document.getElementById('contact-form');
-                const successMessage = document.getElementById('form-success-message');
-
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    contactForm.reset();
-                    successMessage.classList.remove('hidden');
-                    setTimeout(() => successMessage.classList.add('hidden'), 5000);
-                });
-            }
         });
+
+        /**
+         * Shows a custom toast notification at the bottom of the screen.
+         * @param {string} message - The message to display.
+         */
+        function showToast(message) {
+            // Remove any existing toast
+            const oldToast = document.querySelector('.toast-notification');
+            if (oldToast) {
+                oldToast.remove();
+            }
+
+            // Create the new toast element
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            // Animate in
+            // We use a tiny timeout to allow the element to be added to the DOM
+            // before starting the CSS transition.
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            // Animate out after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                
+                // Remove from DOM after transition finishes
+                toast.addEventListener('transitionend', () => {
+                    toast.remove();
+                }, { once: true });
+
+            }, 3000);
+        }
     </script>
 </body>
 </html>
