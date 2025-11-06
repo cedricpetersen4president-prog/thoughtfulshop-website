@@ -285,6 +285,18 @@
         .card-icon {
             color: var(--primary-gold);
             margin-bottom: 1rem;
+            /* Add these to center the SVG/img and align all cards */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 48px; /* Give it a fixed height to align all cards */
+        }
+
+        .card-icon-img {
+            height: 48px; /* Set a fixed height */
+            width: auto; /* Let width adjust automatically */
+            max-width: 100%; /* Ensure it doesn't overflow the card */
+            object-fit: contain;
         }
 
         .card-title {
@@ -534,7 +546,8 @@
                     <!-- Card 1: Pet Supplies -->
                     <a href="#" class="category-card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM21 12c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM9.5 10c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM3 12c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM12 4c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"></path><path d="M19.7 17.5c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.5 0-2.1l-1.4-1.4c-.6-.6-1.5-.6-2.1 0l-1.4 1.4c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0zM4.3 17.5c.3.3.7.5 1.1.5s.8-.2 1.1-.5c.6-.6.6-1.s 0-2.1l-1.4-1.4c-.6-.6-1.5-.6-2.1 0l-1.4 1.4c-.6.6-.6 1.5 0 2.1.6.6 1.5.6 2.1 0z"></path></svg>
+                            <!-- Updated to use the image -->
+                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439716/Fur_Feathers_and_Fins_Pet_Boutique_-_logo_and_color_codes_page-0001_mayg0o.jpg" alt="Pet Supplies" class="card-icon-img">
                         </div>
                         <h3 class="card-title">Pet Supplies</h3>
                         <p class="card-desc">Everything for your furry friends.</p>
@@ -542,7 +555,8 @@
                     <!-- Card 2: Tools & Hardware -->
                     <a href="#" class="category-card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.5a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            <!-- Updated to use the image -->
+                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439678/Bolt_nut_supplies_-_logo_and_color_codes_page-0002_wokd6o.jpg" alt="Tools & Hardware" class="card-icon-img">
                         </div>
                         <h3 class="card-title">Tools & Hardware</h3>
                         <p class="card-desc">For the DIYer and professional.</p>
@@ -550,7 +564,8 @@
                     <!-- Card 3: Health & Wellness -->
                     <a href="#" class="category-card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <!-- Updated to use the image -->
+                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439760/vital_care_market_-_logo_page-0001_fzsrek.jpg" alt="Health & Wellness" class="card-icon-img">
                         </div>
                         <h3 class="card-title">Health & Wellness</h3>
                         <p class="card-desc">Live your healthiest, happiest life.</p>
@@ -558,7 +573,8 @@
                     <!-- Card 4: Crafting Supplies -->
                     <a href="#" class="category-card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.28 2.22a2.83 2.83 0 0 0-4 0L2.22 17.28a2.83 2.83 0 0 0 0 4L6.72 23.8a2.83 2.83 0 0 0 4 0L23.8 8.72a2.83 2.83 0 0 0 0-4L21.28 2.22z"></path><path d="M15.23 8.77l-4.06-4.06"></path><path d="M11.17 12.83l-4.06-4.06"></path></svg>
+                            <!-- Updated to use the image -->
+                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439698/Craft_Nook_Co_-_logo_and_color_codes_page-0001_x78jpt.jpg" alt="Crafting Supplies" class="card-icon-img">
                         </div>
                         <h3 class="card-title">Crafting Supplies</h3>
                         <p class="card-desc">Unleash your inner creativity.</p>
@@ -566,7 +582,8 @@
                     <!-- Card 5: Grocery / Dry Goods -->
                     <a href="#" class="category-card">
                         <div class="card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"></path><path d="M20 6c0-2.2-1.8-4-4-4H8C5.8 2 4 3.8 4 6v3h16V6z"></path><path d="M12 14v4"></path><path d="M8 14v4"></path><path d="M16 14v4"></path></svg>
+                            <!-- Updated to use the image -->
+                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439737/Staple_Street_Market_-_logo_and_color_codes_page-0001_cvlr4q.jpg" alt="Grocery & Dry Goods" class="card-icon-img">
                         </div>
                         <h3 class="card-title">Grocery & Dry Goods</h3>
                         <p class="card-desc">Pantry staples, delivered.</p>
