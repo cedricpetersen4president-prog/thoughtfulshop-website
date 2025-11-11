@@ -4,676 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Thoughtful Shop - Home</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Google Font (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Merged Global Stylesheet -->
-    <style>
-        /* * Global Stylesheet for The Thoughtful Shop
-         * Using custom CSS properties (variables) for brand colors
-         */
 
-        :root {
-            --primary-dark: #10182A;
-            --primary-gold: #AE9673;
-            --white: #FFFFFF;
-            --gray-light: #f8f9fa;
-            --gray-medium: #e9ecef;
-            --gray-dark: #6c757d;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.07), 0 6px 12px 0 rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* --- Global Reset & Body --- */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--white);
-            color: var(--primary-dark);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        main {
-            flex-grow: 1; /* Ensures footer sticks to bottom */
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
-        /* --- Buttons --- */
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-gold);
-            color: var(--primary-dark);
-            border: 2px solid var(--primary-gold);
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--primary-gold);
-        }
-
-        .btn-secondary {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            border: 2px solid var(--primary-dark);
-        }
-
-        .btn-secondary:hover {
-            background-color: transparent;
-            color: var(--primary-dark);
-        }
-
-        /* --- Header & Navigation --- */
-
-        .site-header {
-            background-color: var(--white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--gray-medium);
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        .logo-image {
-            height: 35px; /* Adjust as needed */
-            display: block;
-        }
-
-        .main-nav {
-            display: none; /* Hidden on mobile */
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 0.5rem;
-        }
-
-        .nav-link {
-            display: block;
-            padding: 1.75rem 1rem; /* Aligns with 80px header height */
-            text-decoration: none;
-            color: var(--primary-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-bottom: 3px solid transparent;
-            transition: var(--transition);
-        }
-
-        .nav-link:hover {
-            color: var(--primary-gold);
-            border-bottom-color: var(--primary-gold);
-        }
-
-        .nav-link.active {
-            color: var(--primary-gold);
-            border-bottom-color: var(--primary-gold);
-            font-weight: 600;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .icon-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--gray-dark);
-            padding: 0.5rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .icon-btn:hover {
-            color: var(--primary-dark);
-            background-color: var(--gray-light);
-        }
-
-        .mobile-menu-toggle {
-            display: block; /* Visible on mobile */
-        }
-
-        /* --- Mobile Navigation --- */
-
-        .mobile-nav {
-            display: none; /* Hidden by default */
-            background-color: var(--white);
-            box-shadow: var(--shadow-md);
-            border-top: 1px solid var(--gray-medium);
-        }
-
-        .mobile-nav.active {
-            display: block; /* Shown by JS */
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            color: var(--primary-dark);
-            font-weight: 500;
-            border-bottom: 1px solid var(--gray-light);
-        }
-
-        .mobile-nav-link:hover,
-        .mobile-nav-link.active {
-            color: var(--primary-gold);
-            background-color: var(--gray-light);
-        }
-
-
-        /* --- Hero Section --- */
-
-        .hero {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: 5rem 1.5rem;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-medium);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero .btn-primary:hover {
-            background-color: var(--white);
-            color: var(--primary-dark);
-            border-color: var(--white);
-        }
-
-        /* --- Section Base --- */
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .category-banner,
-        .featured-products {
-            padding: 4rem 0;
-        }
-
-        .featured-products {
-            background-color: var(--gray-light);
-        }
-
-        /* --- Interactive Category Banner --- */
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .category-card {
-            background: var(--white);
-            border: 1px solid var(--gray-medium);
-            border-radius: 8px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            text-decoration: none;
-            color: var(--primary-dark);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-gold);
-        }
-
-        .card-icon {
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-            /* Add these to center the SVG/img and align all cards */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 48px; /* Give it a fixed height to align all cards */
-        }
-
-        .card-icon-img {
-            height: 48px; /* Set a fixed height */
-            width: auto; /* Let width adjust automatically */
-            max-width: 100%; /* Ensure it doesn't overflow the card */
-            object-fit: contain;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: var(--gray-dark);
-        }
-
-        /* --- Product Grid --- */
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .product-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-            background-color: var(--gray-light);
-        }
-
-        .product-content {
-            padding: 1.5rem;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-        }
-
-        .product-card .btn {
-            width: 100%;
-        }
-
-        /* --- Footer --- */
-
-        .site-footer-main {
-            background-color: var(--primary-dark);
-            color: var(--gray-medium);
-            padding: 4rem 0 2rem;
-            margin-top: auto; /* Sticks to bottom */
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo {
-            height: 30px;
-            margin-bottom: 1rem;
-        }
-
-        .footer-desc {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            max-width: 300px;
-        }
-
-        .footer-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .footer-links a,
-        .contact-info li {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--gray-medium);
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-gold);
-        }
-
-        .contact-info {
-            font-style: normal;
-        }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #3a4150; /* Darker than footer bg */
-            padding-top: 2rem;
-            font-size: 0.85rem;
-            color: var(--gray-dark);
-        }
-
-        /* --- Toast Notification --- */
-        .toast-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translate(-50%, 150%); /* Start off-screen */
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: 1rem 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 1001;
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            font-weight: 500;
-        }
-
-        .toast-notification.show {
-            transform: translate(-50%, 0);
-            opacity: 1;
-        }
-
-        /* --- Responsive Media Queries --- */
-
-        @media (min-width: 769px) {
-            .main-nav {
-                display: block; /* Show desktop nav */
-            }
-            .mobile-menu-toggle {
-                display: none; /* Hide hamburger */
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10182A', // Primary Dark
+                            'dark': '#0B111E'
+                        },
+                        secondary: {
+                            DEFAULT: '#AE9673', // Primary Gold
+                        },
+                        'gray-light': '#f8f9fa',
+                        'gray-medium': '#e9ecef',
+                        'gray-dark': '#6c757d',
+                    }
+                }
             }
         }
+    </script>
 
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.25rem;
-            }
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
-            }
-        }
+    <!-- Our Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 
-        @media (max-width: 480px) {
-            .footer-grid {
-                grid-template-columns: 1fr; /* 1 column on mobile */
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="font-sans antialiased text-primary-dark bg-white">
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-container">
-            <!-- Logo -->
-            <a href="index.html" class="logo-link">
-                <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="logo-image">
-            </a>
+    <!-- Global Header -->
+    <header class="bg-white border-b border-gray-medium sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-9 w-auto">
+                </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="products.html" class="nav-link">Products</a></li>
-                    <li><a href="festivals.html" class="nav-link">Festivals</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact Us</a></li>
-                </ul>
-            </nav>
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex lg:space-x-4">
+                    <a href="index.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Home</a>
+                    <a href="products.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Products</a>
+                    <a href="festivals.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Festivals</a>
+                    <a href="about.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">About Us</a>
+                    <a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Contact Us</a>
+                </nav>
 
-            <!-- Header Icons & Mobile Toggle -->
-            <div class="header-right">
-                <button class="icon-btn search-btn" aria-label="Search">
-                    <!-- Search Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </button>
-                <button class="icon-btn cart-btn" aria-label="View Cart">
-                    <!-- Cart Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                </button>
-                <button class="icon-btn mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open Menu" aria-expanded="false">
-                    <!-- Mobile Menu Icon (Hamburger) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </button>
+                <!-- Search, Cart, Mobile Menu Button -->
+                <div class="flex items-center">
+                    <!-- Search -->
+                    <button class="p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Search</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+
+                    <!-- Cart -->
+                    <a href="cart.html" class="ml-2 p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden ml-2 p-2 text-gray-dark hover:text-primary">
+                        <span class="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-medium">
+            <div class="space-y-1 pt-2 pb-3 px-2">
+                <a href="index.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Home</a>
+                <a href="products.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Products</a>
+                <a href="festivals.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Festivals</a>
+                <a href="about.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">About Us</a>
+                <a href="contact.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Contact Us</a>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu (Hidden by default) -->
-    <nav class="mobile-nav" id="mobile-nav">
-        <a href="index.html" class="mobile-nav-link active">Home</a>
-        <a href="products.html" class="mobile-nav-link">Products</a>
-        <a href="festivals.html" class="mobile-nav-link">Festivals</a>
-        <a href="about.html" class="mobile-nav-link">About Us</a>
-        <a href="contact.html" class="mobile-nav-link">Contact Us</a>
-    </nav>
-
-    <!-- Main Content -->
+    <!-- Main Content Area -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title">Welcome to The Thoughtful Shop</h1>
-                <p class="hero-subtitle">Your source for carefully curated products, delivered with speed and reliability.</p>
-                <a href="products.html" class="btn btn-primary">Shop All Collections</a>
+        
+        <!-- Hero Slideshow -->
+        <section class="slideshow-container relative w-full h-[300px] md:h-[450px] lg:h-[550px] bg-primary-dark overflow-hidden">
+            <!-- Slide 1 -->
+            <div class="slide active absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://placehold.co/1920x800/10182A/AE9673?text=Slide+1');">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center text-center text-white relative z-10">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Welcome to The Thoughtful Shop</h1>
+                    <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">Your source for carefully curated products, delivered with speed and reliability.</p>
+                    <a href="products.html" class="inline-block bg-secondary text-primary font-bold py-3 px-8 rounded-lg mt-8 text-lg transition duration-300 hover:bg-white hover:text-primary">
+                        Shop All Collections
+                    </a>
+                </div>
             </div>
-        </section>
-
-        <!-- Category Banner Section (Interactive) -->
-        <section class="category-banner">
-            <div class="container">
-                <h2 class="section-title">Explore Our Niche Shops</h2>
-                <div class="category-grid">
-                    <!-- Card 1: Pet Supplies -->
-                    <a href="#" class="category-card">
-                        <div class="card-icon">
-                            <!-- Updated to use the image -->
-                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439716/Fur_Feathers_and_Fins_Pet_Boutique_-_logo_and_color_codes_page-0001_mayg0o.jpg" alt="Pet Supplies" class="card-icon-img">
-                        </div>
-                        <h3 class="card-title">Pet Supplies</h3>
-                        <p class="card-desc">Everything for your furry friends.</p>
+            <!-- Slide 2 -->
+            <div class="slide absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://placehold.co/1920x800/AE9673/10182A?text=Slide+2');">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center text-center text-white relative z-10">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Discover Our Niche Shops</h1>
+                    <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">From pet supplies to hardware, find exactly what you need.</p>
+                    <a href="#page-home-niche-shops" class="inline-block bg-secondary text-primary font-bold py-3 px-8 rounded-lg mt-8 text-lg transition duration-300 hover:bg-white hover:text-primary">
+                        Explore Categories
                     </a>
-                    <!-- Card 2: Tools & Hardware -->
-                    <a href="#" class="category-card">
-                        <div class="card-icon">
-                            <!-- Updated to use the image -->
-                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439678/Bolt_nut_supplies_-_logo_and_color_codes_page-0002_wokd6o.jpg" alt="Tools & Hardware" class="card-icon-img">
-                        </div>
-                        <h3 class="card-title">Tools & Hardware</h3>
-                        <p class="card-desc">For the DIYer and professional.</p>
-                    </a>
-                    <!-- Card 3: Health & Wellness -->
-                    <a href="#" class="category-card">
-                        <div class="card-icon">
-                            <!-- Updated to use the image -->
-                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439760/vital_care_market_-_logo_page-0001_fzsrek.jpg" alt="Health & Wellness" class="card-icon-img">
-                        </div>
-                        <h3 class="card-title">Health & Wellness</h3>
-                        <p class="card-desc">Live your healthiest, happiest life.</p>
-                    </a>
-                    <!-- Card 4: Crafting Supplies -->
-                    <a href="#" class="category-card">
-                        <div class="card-icon">
-                            <!-- Updated to use the image -->
-                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439698/Craft_Nook_Co_-_logo_and_color_codes_page-0001_x78jpt.jpg" alt="Crafting Supplies" class="card-icon-img">
-                        </div>
-                        <h3 class="card-title">Crafting Supplies</h3>
-                        <p class="card-desc">Unleash your inner creativity.</p>
-                    </a>
-                    <!-- Card 5: Grocery / Dry Goods -->
-                    <a href="#" class="category-card">
-                        <div class="card-icon">
-                            <!-- Updated to use the image -->
-                            <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439737/Staple_Street_Market_-_logo_and_color_codes_page-0001_cvlr4q.jpg" alt="Grocery & Dry Goods" class="card-icon-img">
-                        </div>
-                        <h3 class="card-title">Grocery & Dry Goods</h3>
-                        <p class="card-desc">Pantry staples, delivered.</p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://placehold.co/1920x800/6c757d/FFFFFF?text=Slide+3');">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-center text-center text-white relative z-10">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight">Community Focused</h1>
+                    <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">We're proud to support local festivals and creators.</p>
+                    <a href="festivals.html" class="inline-block bg-secondary text-primary font-bold py-3 px-8 rounded-lg mt-8 text-lg transition duration-300 hover:bg-white hover:text-primary">
+                        Learn More
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Products -->
-        <section class="featured-products">
-            <div class="container">
-                <h2 class="section-title">Trending Products</h2>
-                <div class="product-grid">
+        <!-- Key Selling Points -->
+        <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <!-- SVG Icon -->
+                <svg class="h-12 w-12 mx-auto mb-4 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5h1.125c.621 0 1.125-.504 1.125-1.125V14.25m0 0V4.875c0-.621.504-1.125 1.125-1.125h13.5c.621 0 1.125.504 1.125 1.125v9.375m-17.25 0h17.25" />
+                </svg>
+                <h3 class="text-xl font-bold mb-2">Reliable Fulfillment</h3>
+                <p class="text-gray-dark">Fast, dependable shipping (powered by MCF) that you and your customers can trust. No Amazon branding, just your brand.</p>
+            </div>
+            <div class="text-center">
+                <!-- SVG Icon -->
+                <svg class="h-12 w-12 mx-auto mb-4 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="text-xl font-bold mb-2">Curated Quality</h3>
+                <p class="text-gray-dark">We don't just sell products; we curate them. Only the best items make it into our "Thoughtful" collection.</p>
+            </div>
+            <div class="text-center">
+                <!-- SVG Icon -->
+                <svg class="h-12 w-12 mx-auto mb-4 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-4.682 2.72a.5.5 0 01-.063-.783A9.094 9.094 0 0112 5.493a9.094 9.094 0 012.258 3.492.5.5 0 01-.063.783A9.094 9.094 0 0112 18.72zM12 5.493a9.094 9.094 0 00-2.258 3.492.5.5 0 00.063.783A9.094 9.094 0 0012 18.72M12 5.493A9.094 9.094 0 0114.258 8.985a.5.5 0 00.063-.783A9.094 9.094 0 0012 5.493z" />
+                </svg>
+                <h3 class="text-xl font-bold mb-2">Community First</h3>
+                <p class="text-gray-dark">We're proud to support local distributors and showcase community festivals. We're more than just a store.</p>
+            </div>
+        </section>
+
+        <!-- Other Niche Websites (Your new section) -->
+        <section id="page-home-niche-shops" class="py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-10">Explore Our Niche Shops</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Card 1: Pet Supplies -->
+                    <a href="#" class="group text-center p-6 bg-white rounded-lg shadow-sm border border-gray-medium transition-all duration-300 hover:shadow-xl hover:border-secondary">
+                        <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439716/Fur_Feathers_and_Fins_Pet_Boutique_-_logo_and_color_codes_page-0001_mayg0o.jpg" alt="Pet Supplies" class="category-card-img mx-auto mb-4 transition-transform duration-300 group-hover:scale-105">
+                        <h3 class="text-lg font-semibold text-primary">Pet Supplies</h3>
+                        <p class="text-sm text-gray-dark">For your furry friends.</p>
+                    </a>
+                    <!-- Card 2: Tools & Hardware -->
+                    <a href="#" class="group text-center p-6 bg-white rounded-lg shadow-sm border border-gray-medium transition-all duration-300 hover:shadow-xl hover:border-secondary">
+                        <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439678/Bolt_nut_supplies_-_logo_and_color_codes_page-0002_wokd6o.jpg" alt="Tools & Hardware" class="category-card-img mx-auto mb-4 transition-transform duration-300 group-hover:scale-105">
+                        <h3 class="text-lg font-semibold text-primary">Tools & Hardware</h3>
+                        <p class="text-sm text-gray-dark">For the DIYer.</p>
+                    </a>
+                    <!-- Card 3: Health & Wellness -->
+                    <a href="#" class="group text-center p-6 bg-white rounded-lg shadow-sm border border-gray-medium transition-all duration-300 hover:shadow-xl hover:border-secondary">
+                        <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439760/vital_care_market_-_logo_page-0001_fzsrek.jpg" alt="Health & Wellness" class="category-card-img mx-auto mb-4 transition-transform duration-300 group-hover:scale-105">
+                        <h3 class="text-lg font-semibold text-primary">Health & Wellness</h3>
+                        <p class="text-sm text-gray-dark">Live your best life.</p>
+                    </a>
+                    <!-- Card 4: Crafting Supplies -->
+                    <a href="#" class="group text-center p-6 bg-white rounded-lg shadow-sm border border-gray-medium transition-all duration-300 hover:shadow-xl hover:border-secondary">
+                        <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439698/Craft_Nook_Co_-_logo_and_color_codes_page-0001_x78jpt.jpg" alt="Crafting Supplies" class="category-card-img mx-auto mb-4 transition-transform duration-300 group-hover:scale-105">
+                        <h3 class="text-lg font-semibold text-primary">Crafting Supplies</h3>
+                        <p class="text-sm text-gray-dark">Unleash creativity.</p>
+                    </a>
+                    <!-- Card 5: Grocery / Dry Goods -->
+                    <a href="#" class="group text-center p-6 bg-white rounded-lg shadow-sm border border-gray-medium transition-all duration-300 hover:shadow-xl hover:border-secondary">
+                        <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762439737/Staple_Street_Market_-_logo_and_color_codes_page-0001_cvlr4q.jpg" alt="Grocery & Dry Goods" class="category-card-img mx-auto mb-4 transition-transform duration-300 group-hover:scale-105">
+                        <h3 class="text-lg font-semibold text-primary">Grocery & Dry Goods</h3>
+                        <p class="text-sm text-gray-dark">Pantry staples.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Products (From your inspiration file) -->
+        <section class="py-16 bg-gray-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-10">Trending Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Product 1 -->
-                    <div class="product-card">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-title">Premium Dog Food</h3>
-                            <p class="product-price">$59.99</p>
-                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="product-title font-bold text-lg truncate">Premium Dog Food</h3>
+                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$59.99</p>
+                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
                         </div>
-                    </div>
+                    </a>
                     <!-- Product 2 -->
-                    <div class="product-card">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-title">Cordless Drill Set</h3>
-                            <p class="product-price">$129.99</p>
-                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="product-title font-bold text-lg truncate">Cordless Drill Set</h3>
+                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$129.99</p>
+                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
                         </div>
-                    </div>
+                    </a>
                     <!-- Product 3 -->
-                    <div class="product-card">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-title">Organic Vitamin C</h3>
-                            <p class="product-price">$24.99</p>
-                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="product-title font-bold text-lg truncate">Organic Vitamin C</h3>
+                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$24.99</p>
+                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
                         </div>
-                    </div>
+                    </a>
                     <!-- Product 4 -->
-                    <div class="product-card">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="product-image">
-                        <div class="product-content">
-                            <h3 class="product-title">Watercolor Paint Set</h3>
-                            <p class="product-price">$34.99</p>
-                            <button class="btn btn-secondary add-to-cart-btn">Add to Cart</button>
+                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="product-title font-bold text-lg truncate">Watercolor Paint Set</h3>
+                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$34.99</p>
+                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer-main">
-        <div class="container">
-            <div class="footer-grid">
+    <!-- Global Footer (Your new style) -->
+    <footer class="bg-primary text-gray-medium mt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
                 <!-- About -->
-                <div class="footer-col">
-                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="footer-logo">
-                    <p class="footer-desc">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
+                <div class="lg:col-span-2">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-8 mb-4">
+                    <p class="text-sm text-gray-400 max-w-xs">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
                 </div>
+                
                 <!-- Our Niche Shops -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Our Niche Shops</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Pet Supplies</a></li>
-                        <li><a href="#">Tools & Hardware</a></li>
-                        <li><a href="#">Health & Wellness</a></li>
-                        <li><a href="#">Crafting Supplies</a></li>
-                        <li><a href="#">Grocery & Dry Goods</a></li>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Our Niche Shops</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Pet Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Tools & Hardware</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Health & Wellness</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Crafting Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Grocery & Dry Goods</a></li>
                     </ul>
                 </div>
+                
                 <!-- Quick Links -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm hover:text-secondary transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-sm hover:text-secondary transition duration-300">Contact Us</a></li>
+                        <li><a href="products.html" class="text-sm hover:text-secondary transition duration-300">Products</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Terms of Service</a></li>
                     </ul>
                 </div>
+
                 <!-- Contact -->
-                <div class="footer-col">
-                    <h4 class="footer-title">Contact Us</h4>
-                    <ul class="footer-links contact-info">
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
                         <li>Email: support@thoughtfulshop.com</li>
                         <li>Phone: (800) 555-1234</li>
                         <li>123 Thoughtful Way, Suite 100</li>
@@ -681,87 +295,15 @@
                     </ul>
                 </div>
             </div>
-            <!-- Copyright -->
-            <div class="copyright">
-                &copy; 2025 The Thoughtful Shop. All rights reserved.
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 The Thoughtful Shop. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Merged Global JavaScript -->
-    <script defer>
-        /**
-         * Global JavaScript for The Thoughtful Shop
-         */
-
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // --- Mobile Menu Toggle ---
-            const menuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileNav = document.getElementById('mobile-nav');
-
-            if (menuToggle && mobileNav) {
-                menuToggle.addEventListener('click', () => {
-                    // Toggle the 'active' class to show/hide the menu
-                    mobileNav.classList.toggle('active');
-
-                    // Toggle ARIA attributes for accessibility
-                    const isExpanded = mobileNav.classList.contains('active');
-                    menuToggle.setAttribute('aria-expanded', isExpanded);
-                });
-            }
-
-            // --- Add to Cart Notification ---
-            const cartButtons = document.querySelectorAll('.add-to-cart-btn');
-            cartButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    event.preventDefault(); // Stop if it's a link
-                    
-                    // Get product name
-                    const productCard = button.closest('.product-card');
-                    const productTitle = productCard.querySelector('.product-title').textContent;
-                    
-                    showToast(`${productTitle} added to cart!`);
-                });
-            });
-
-        });
-
-        /**
-         * Shows a custom toast notification at the bottom of the screen.
-         * @param {string} message - The message to display.
-         */
-        function showToast(message) {
-            // Remove any existing toast
-            const oldToast = document.querySelector('.toast-notification');
-            if (oldToast) {
-                oldToast.remove();
-            }
-
-            // Create the new toast element
-            const toast = document.createElement('div');
-            toast.className = 'toast-notification';
-            toast.textContent = message;
-            document.body.appendChild(toast);
-
-            // Animate in
-            // We use a tiny timeout to allow the element to be added to the DOM
-            // before starting the CSS transition.
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 10);
-
-            // Animate out after 3 seconds
-            setTimeout(() => {
-                toast.classList.remove('show');
-                
-                // Remove from DOM after transition finishes
-                toast.addEventListener('transitionend', () => {
-                    toast.remove();
-                }, { once: true });
-
-            }, 3000);
-        }
-    </script>
+    <!-- Global JS -->
+    <script src="js/main.js"></script>
 </body>
 </html>
