@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thoughtful Shop - Contact Us</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10182A', // Primary Dark
+                            'dark': '#0B111E'
+                        },
+                        secondary: {
+                            DEFAULT: '#AE9673', // Primary Gold
+                        },
+                        'gray-light': '#f8f9fa',
+                        'gray-medium': '#e9ecef',
+                        'gray-dark': '#6c757d',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Our Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="font-sans antialiased text-primary-dark bg-white">
+
+    <!-- Global Header -->
+    <header class="bg-white border-b border-gray-medium sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-9 w-auto">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex lg:space-x-4">
+                    <a href="index.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Home</a>
+                    <a href="products.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Products</a>
+                    <a href="festivals.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Festivals</a>
+                    <a href="about.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">About Us</a>
+                    <a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Contact Us</a>
+                </nav>
+
+                <!-- Search, Cart, Mobile Menu Button -->
+                <div class="flex items-center">
+                    <!-- Search -->
+                    <button class="p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Search</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+
+                    <!-- Cart -->
+                    <a href="#" class="ml-2 p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden ml-2 p-2 text-gray-dark hover:text-primary">
+                        <span class="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-medium">
+            <div class="space-y-1 pt-2 pb-3 px-2">
+                <a href="index.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Home</a>
+                <a href="products.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Products</a>
+                <a href="festivals.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Festivals</a>
+                <a href="about.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">About Us</a>
+                <a href="contact.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 bg-white p-10 rounded-lg shadow-lg border border-gray-medium">
+                <!-- Contact Form -->
+                <div>
+                    <h1 class="text-4xl font-bold mb-4">Get In Touch</h1>
+                    <p class="text-lg text-gray-dark mb-8">Have a question about an order, a product, or just want to say hello? Fill out the form below.</p>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 shadow-sm focus:outline-none focus:ring-secondary focus:border-secondary">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 shadow-sm focus:outline-none focus:ring-secondary focus:border-secondary">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="6" class="mt-1 block w-full border border-gray-300 rounded-lg px-3 py-2 shadow-sm focus:outline-none focus:ring-secondary focus:border-secondary"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-primary-dark transition duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="bg-primary text-white rounded-lg p-8">
+                    <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <!-- SVG Icon -->
+                            <svg class="h-6 w-6 mr-3 mt-1 text-secondary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                            <div>
+                                <h4 class="font-semibold">Our Warehouse</h4>
+                                <p class="text-gray-300">123 Thoughtful Way<br>Suite 100<br>Anytown, USA 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <!-- SVG Icon -->
+                            <svg class="h-6 w-6 mr-3 mt-1 text-secondary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                            <div>
+                                <h4 class="font-semibold">Email Us</h4>
+                                <p class="text-gray-300">support@thoughtfulshop.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <!-- SVG Icon -->
+                            <svg class="h-6 w-6 mr-3 mt-1 text-secondary flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.211-.991-.554-1.332l-2.1-1.95a.45.45 0 00-.65-.015l-1.638.96c-.377.222-.85.222-1.227 0l-4.14-2.423a1.95 1.95 0 01-1.227-1.811V6.75A2.25 2.25 0 004.5 4.5H2.25z" /></svg>
+                            <div>
+                                <h4 class="font-semibold">Call Us</h4>
+                                <p class="text-gray-300">(800) 555-1234<br><span class="text-sm">Mon - Fri, 9am - 5pm</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Footer (Your new style) -->
+    <footer class="bg-primary text-gray-medium mt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <!-- About -->
+                <div class="lg:col-span-2">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-8 mb-4">
+                    <p class="text-sm text-gray-400 max-w-xs">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
+                </div>
+                
+                <!-- Our Niche Shops -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Our Niche Shops</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Pet Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Tools & Hardware</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Health & Wellness</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Crafting Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Grocery & Dry Goods</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm hover:text-secondary transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-sm hover:text-secondary transition duration-300">Contact Us</a></li>
+                        <li><a href="products.html" class="text-sm hover:text-secondary transition duration-300">Products</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>Email: support@thoughtfulshop.com</li>
+                        <li>Phone: (800) 555-1234</li>
+                        <li>123 Thoughtful Way, Suite 100</li>
+                        <li>Anytown, USA 12345</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 The Thoughtful Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

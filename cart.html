@@ -1,0 +1,244 @@
+﻿<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thoughtful Shop - Your Cart</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10182A', // Primary Dark
+                            'dark': '#0B111E'
+                        },
+                        secondary: {
+                            DEFAULT: '#AE9673', // Primary Gold
+                        },
+                        'gray-light': '#f8f9fa',
+                        'gray-medium': '#e9ecef',
+                        'gray-dark': '#6c757d',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Our Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 1. ADD STRIPE.JS SCRIPT -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+<body class="font-sans antialiased text-primary-dark bg-white">
+
+    <!-- Global Header -->
+    <header class="bg-white border-b border-gray-medium sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-9 w-auto">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex lg:space-x-4">
+                    <a href="index.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Home</a>
+                    <a href="products.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Products</a>
+                    <a href="festivals.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Festivals</a>
+                    <a href="about.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">About Us</a>
+                    <a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Contact Us</a>
+                </nav>
+
+                <!-- Search, Cart, Mobile Menu Button -->
+                <div class="flex items-center">
+                    <!-- Search -->
+                    <button class="p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Search</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+
+                    <!-- Cart -->
+                    <a href="cart.html" class="ml-2 p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden ml-2 p-2 text-gray-dark hover:text-primary">
+                        <span class="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-medium">
+            <div class="space-y-1 pt-2 pb-3 px-2">
+                <a href="index.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Home</a>
+                <a href="products.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Products</a>
+                <a href="festivals.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Festivals</a>
+                <a href="about.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">About Us</a>
+                <a href="contact.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h1 class="text-4xl font-bold mb-8">Your Shopping Cart</h1>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <!-- Cart Items -->
+                <div class="lg:w-2/3">
+                    <div class="space-y-6" id="cart-items-container">
+
+                        <!-- Cart Item 1 -->
+                        <div class="cart-item flex flex-col sm:flex-row items-center gap-6 p-6 bg-white rounded-lg shadow-sm border border-gray-medium">
+                            <img src="https://placehold.co/150x150/F0F0F0/AAA?text=Product+1" alt="Product" class="w-32 h-32 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <a href="product-detail.html" class="font-bold text-lg text-primary hover:text-secondary">Cordless Drill Set</a>
+                                <p class="text-gray-dark">Tools & DIY</p>
+                                <button class="remove-item text-sm text-red-600 hover:text-red-800 font-medium mt-2">Remove</button>
+                            </div>
+                            <div class="quantity-input-wrapper">
+                                <button class="quantity-btn quantity-minus" data-action="minus" type="button">&minus;</button>
+                                <input type="number" class="quantity-input" value="1" min="1" data-price="129.99">
+                                <button class="quantity-btn quantity-plus" data-action="plus" type="button">&plus;</button>
+                            </div>
+                            <p class="item-total text-xl font-bold text-primary w-24 text-right">$129.99</p>
+                        </div>
+
+                        <!-- Cart Item 2 -->
+                        <div class="cart-item flex flex-col sm:flex-row items-center gap-6 p-6 bg-white rounded-lg shadow-sm border border-gray-medium">
+                            <img src="https://placehold.co/150x150/E0E0E0/999?text=Product+2" alt="Product" class="w-32 h-32 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <a href="product-detail.html" class="font-bold text-lg text-primary hover:text-secondary">Premium Dog Food</a>
+                                <p class="text-gray-dark">Pet Supplies</p>
+                                <button class="remove-item text-sm text-red-600 hover:text-red-800 font-medium mt-2">Remove</button>
+                            </div>
+                            <div class="quantity-input-wrapper">
+                                <button class="quantity-btn quantity-minus" data-action="minus" type="button">&minus;</button>
+                                <input type="number" class="quantity-input" value="2" min="1" data-price="59.99">
+                                <button class="quantity-btn quantity-plus" data-action="plus" type="button">&plus;</button>
+                            </div>
+                            <p class="item-total text-xl font-bold text-primary w-24 text-right">$119.98</p>
+                        </div>
+                        
+                        <!-- Empty Cart Message (Hidden by default) -->
+                        <div id="empty-cart-message" class="hidden text-center py-12 bg-white rounded-lg shadow-sm border border-gray-medium">
+                            <h2 class="text-2xl font-semibold mb-4">Your cart is empty</h2>
+                            <a href="products.html" class="inline-block bg-secondary text-primary font-bold py-3 px-8 rounded-lg text-lg transition duration-300 hover:bg-primary hover:text-white">
+                                Continue Shopping
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:w-1/3">
+                    <div class="bg-gray-light p-8 rounded-lg shadow-sm border border-gray-medium sticky top-28">
+                        <h2 class="text-2xl font-bold mb-6 border-b border-gray-medium pb-4">Order Summary</h2>
+                        <div class="space-y-4">
+                            <div class="flex justify-between text-lg">
+                                <span class="text-gray-dark">Subtotal</span>
+                                <span id="cart-subtotal" class="font-semibold text-primary">$249.97</span>
+                            </div>
+                            <div class="flex justify-between text-lg">
+                                <span class="text-gray-dark">Shipping</span>
+                                <span id="cart-shipping" class="font-semibold text-primary">$15.00</span>
+                            </div>
+                            <div class="flex justify-between text-lg">
+                                <span class="text-gray-dark">Est. Tax</span>
+                                <span id="cart-tax" class="font-semibold text-primary">$20.00</span>
+                            </div>
+                            <div class="flex justify-between text-2xl font-bold text-primary border-t border-gray-medium pt-4 mt-4">
+                                <span>Total</span>
+                                <span id="cart-total">$284.97</span>
+                            </div>
+                        </div>
+                        <!-- 2. ADD ID TO CHECKOUT BUTTON -->
+                        <button id="checkout-button" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-primary-dark transition duration-300 mt-8">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Footer (Your new style) -->
+    <footer class="bg-primary text-gray-medium mt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <!-- About -->
+                <div class="lg:col-span-2">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-8 mb-4">
+                    <p class="text-sm text-gray-400 max-w-xs">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
+                </div>
+                
+                <!-- Our Niche Shops -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Our Niche Shops</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Pet Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Tools & Hardware</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Health & Wellness</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Crafting Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Grocery & Dry Goods</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm hover:text-secondary transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-sm hover:text-secondary transition duration-300">Contact Us</a></li>
+                        <li><a href="products.html" class="text-sm hover:text-secondary transition duration-300">Products</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>Email: support@thoughtfulshop.com</li>
+                        <li>Phone: (800) 555-1234</li>
+                        <li>123 Thoughtful Way, Suite 100</li>
+                        <li>Anytown, USA 12345</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 The Thoughtful Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

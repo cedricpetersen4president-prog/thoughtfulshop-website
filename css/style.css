@@ -1,0 +1,182 @@
+﻿/* --- Toast Notification (from your inspiration file) --- */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 150%); /* Start off-screen */
+    background-color: #10182A; /* Your primary-dark */
+    color: #FFFFFF;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    font-weight: 500;
+}
+
+.toast-notification.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* Custom style for the category card images */
+.category-card-img {
+    height: 60px; /* Fixed height */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* --- Slideshow Styles --- */
+.slide {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    will-change: opacity;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* --- Product Detail Page: Gallery --- */
+.gallery-thumbnail {
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    border: 2px solid transparent;
+}
+.gallery-thumbnail:hover {
+    opacity: 1;
+}
+.gallery-thumbnail.active {
+    opacity: 1;
+    border-color: #AE9673; /* secondary color */
+}
+
+/* --- Product Detail Page: Tabs --- */
+.tab-button {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 500;
+    color: #6c757d; /* gray-dark */
+    border-bottom-width: 2px;
+    border-color: transparent;
+    transition: all 0.2s ease;
+}
+.tab-button:hover {
+    color: #10182A; /* primary */
+}
+.tab-button.active {
+    color: #AE9673; /* secondary */
+    border-color: #AE9673; /* secondary */
+}
+.tab-panel {
+    display: none; /* Hidden by default */
+}
+.tab-panel.active {
+    display: block; /* Show active panel */
+}
+
+/* --- Quantity Input (Used on PDP & Cart) --- */
+.quantity-input-wrapper {
+    display: flex;
+    align-items: center;
+}
+.quantity-btn {
+    height: 2.5rem; /* 40px */
+    width: 2.5rem; /* 40px */
+    background-color: #f8f9fa; /* gray-light */
+    border: 1px solid #e9ecef; /* gray-medium */
+    color: #10182A; /* primary */
+    font-weight: 700;
+    font-size: 1.25rem; /* 20px */
+    border-radius: 0.375rem; /* 6px */
+    transition: background-color 0.2s ease;
+}
+.quantity-btn:hover {
+    background-color: #e9ecef; /* gray-medium */
+}
+.quantity-input {
+    height: 2.5rem; /* 40px */
+    width: 4rem; /* 64px */
+    text-align: center;
+    border-top: 1px solid #e9ecef; /* gray-medium */
+    border-bottom: 1px solid #e9ecef; /* gray-medium */
+    font-weight: 600;
+    /* Hide the default number input spinners */
+    -moz-appearance: textfield;
+}
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Product Filter Styles --- */
+.filter-btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem; /* 6px */
+    font-weight: 500;
+    color: #6c757d; /* gray-dark */
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+.filter-btn:hover {
+    color: #10182A; /* primary */
+    background-color: #f8f9fa; /* gray-light */
+}
+.filter-btn.active {
+    color: #AE9673; /* secondary */
+    background-color: #fdfcf9;
+    border-color: #AE9673; /* secondary */
+    font-weight: 600;
+}
+
+/* --- Active Filter Pill Bar --- */
+#active-filters-bar {
+    opacity: 1;
+    max-height: 100px; /* Set to a reasonable max height */
+    transition: opacity 0.3s ease, max-height 0.4s ease, margin-bottom 0.4s ease;
+    overflow: hidden;
+}
+
+#active-filters-bar.filter-bar-hidden {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0 !important;
+}
+
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    background-color: #fdfcf9; /* Light gold background */
+    border: 1px solid #AE9673; /* secondary */
+    color: #AE9673; /* secondary */
+    border-radius: 9999px; /* pill shape */
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    line-height: 1;
+}
+
+.filter-pill-remove {
+    margin-left: 0.5rem;
+    background: none;
+    border: none;
+    color: #AE9673; /* secondary */
+    font-size: 1.25rem; /* 20px */
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.filter-pill-remove:hover {
+    opacity: 1;
+}

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thoughtful Shop - About Us</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10182A', // Primary Dark
+                            'dark': '#0B111E'
+                        },
+                        secondary: {
+                            DEFAULT: '#AE9673', // Primary Gold
+                        },
+                        'gray-light': '#f8f9fa',
+                        'gray-medium': '#e9ecef',
+                        'gray-dark': '#6c757d',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Our Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="font-sans antialiased text-primary-dark bg-white">
+
+    <!-- Global Header -->
+    <header class="bg-white border-b border-gray-medium sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-9 w-auto">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex lg:space-x-4">
+                    <a href="index.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Home</a>
+                    <a href="products.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Products</a>
+                    <a href="festivals.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Festivals</a>
+                    <a href="about.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">About Us</a>
+                    <a href="contact.html" class="nav-link border-b-2 border-transparent hover:border-secondary hover:text-secondary inline-flex items-center px-1 pt-1 text-base font-medium">Contact Us</a>
+                </nav>
+
+                <!-- Search, Cart, Mobile Menu Button -->
+                <div class="flex items-center">
+                    <!-- Search -->
+                    <button class="p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Search</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+
+                    <!-- Cart -->
+                    <a href="#" class="ml-2 p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                        <span class="sr-only">Cart</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden ml-2 p-2 text-gray-dark hover:text-primary">
+                        <span class="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-medium">
+            <div class="space-y-1 pt-2 pb-3 px-2">
+                <a href="index.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Home</a>
+                <a href="products.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Products</a>
+                <a href="festivals.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Festivals</a>
+                <a href="about.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">About Us</a>
+                <a href="contact.html" class="nav-link mobile block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-light">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="max-w-4xl mx-auto bg-white p-10 rounded-lg shadow-lg border border-gray-medium">
+                <h1 class="text-4xl font-bold text-center mb-8">About The Thoughtful Shop</h1>
+                
+                <img src="https://placehold.co/800x300/10182A/AE9673?text=Our+Team" alt="Our Team" class="w-full h-64 object-cover rounded-lg mb-8">
+
+                <h2 class="text-2xl font-bold text-primary mb-3">Our Story</h2>
+                <p class="text-gray-dark text-lg mb-6 leading-relaxed">
+                    Founded in 2024, The Thoughtful Shop was born from a simple idea: to make it easier for people to find high-quality, unique, and genuinely useful products without the endless scrolling and overwhelming choice of giant marketplaces. We're a small team passionate about curation. We believe that every item in your home should have a purpose and bring you joy.
+                </p>
+
+                <h2 class="text-2xl font-bold text-primary mb-3">Our Mission</h2>
+                <p class="text-gray-dark text-lg mb-6 leading-relaxed">
+                    Our mission is to provide a curated collection of goods that are "thoughtful" in every sense. Thoughtfully designed, thoughtfully sourced, and thoughtfully delivered. We partner with independent creators, established brands, and local communities to build a shop that's as unique as our customers. We handle the logistics so you can just enjoy the discovery.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Footer (Your new style) -->
+    <footer class="bg-primary text-gray-medium mt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <!-- About -->
+                <div class="lg:col-span-2">
+                    <img src="https://res.cloudinary.com/dtwmyyf3b/image/upload/v1762196231/TTS-logo_b6jyjg.png" alt="The Thoughtful Shop Logo" class="h-8 mb-4">
+                    <p class="text-sm text-gray-400 max-w-xs">Curated goods, delivered thoughtfully. We provide reliable fulfillment for a wide range of quality products.</p>
+                </div>
+                
+                <!-- Our Niche Shops -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Our Niche Shops</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Pet Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Tools & Hardware</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Health & Wellness</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Crafting Supplies</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Grocery & Dry Goods</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-sm hover:text-secondary transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-sm hover:text-secondary transition duration-300">Contact Us</a></li>
+                        <li><a href="products.html" class="text-sm hover:text-secondary transition duration-300">Products</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Shipping Policy</a></li>
+                        <li><a href="#" class="text-sm hover:text-secondary transition duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase text-white mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>Email: support@thoughtfulshop.com</li>
+                        <li>Phone: (800) 555-1234</li>
+                        <li>123 Thoughtful Way, Suite 100</li>
+                        <li>Anytown, USA 12345</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 The Thoughtful Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
