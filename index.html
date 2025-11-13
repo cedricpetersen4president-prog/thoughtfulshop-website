@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Thoughtful Shop - Home</title>
+    <title>The Thoughtful Shop</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -98,7 +98,7 @@
 
     <!-- Main Content Area -->
     <main>
-        
+
         <!-- Hero Slideshow -->
         <section class="slideshow-container relative w-full h-[300px] md:h-[450px] lg:h-[550px] bg-primary-dark overflow-hidden">
             <!-- Slide 1 -->
@@ -203,47 +203,83 @@
             </div>
         </section>
 
-        <!-- Trending Products (From your inspiration file) -->
+        <!-- Trending Products -->
         <section class="py-16 bg-gray-light">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-center mb-10">Trending Products</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
                     <!-- Product 1 -->
-                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="w-full h-64 object-cover">
-                        <div class="p-6">
-                            <h3 class="product-title font-bold text-lg truncate">Premium Dog Food</h3>
-                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$59.99</p>
-                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
-                        </div>
-                    </a>
+                    <div class="product-card">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="product-title font-bold text-lg truncate">Premium Dog Food</h3>
+                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$59.99</p>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
+                            </div>
+                        </a>
+                    </div>
                     <!-- Product 2 -->
-                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="w-full h-64 object-cover">
-                        <div class="p-6">
-                            <h3 class="product-title font-bold text-lg truncate">Cordless Drill Set</h3>
-                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$129.99</p>
-                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
-                        </div>
-                    </a>
+                    <div class="product-card">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="product-title font-bold text-lg truncate">Cordless Drill Set</h3>
+                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$129.99</p>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
+                            </div>
+                        </a>
+                    </div>
                     <!-- Product 3 -->
-                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="w-full h-64 object-cover">
-                        <div class="p-6">
-                            <h3 class="product-title font-bold text-lg truncate">Organic Vitamin C</h3>
-                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$24.99</p>
-                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
-                        </div>
-                    </a>
+                    <div class="product-card">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="product-title font-bold text-lg truncate">Organic Vitamin C</h3>
+                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$24.99</p>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
+                            </div>
+                        </a>
+                    </div>
                     <!-- Product 4 -->
-                    <a href="product-detail.html" class="block product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="w-full h-64 object-cover">
-                        <div class="p-6">
-                            <h3 class="product-title font-bold text-lg truncate">Watercolor Paint Set</h3>
-                            <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$34.99</p>
-                            <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
+                    <div class="product-card">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="product-title font-bold text-lg truncate">Watercolor Paint Set</h3>
+                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$34.99</p>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product of the Week (Light Version) -->
+        <section class="py-20 bg-gray-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Image -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/600x600/AE9673/10182A?text=Product+of+the+Week" alt="Product of the Week" class="rounded-lg shadow-2xl w-full max-w-md mx-auto border-4 border-white">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="text-primary-dark">
+                        <span class="text-secondary font-bold tracking-widest uppercase">Deal of the Week</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6 text-primary">Artisan Ceramic Mug</h2>
+                        <p class="text-lg text-gray-dark leading-relaxed mb-8">
+                            Experience your morning coffee in style with our best-selling Artisan Ceramic Mug. Handmade by local creators, this 16oz mug features a unique glaze and an ergonomic handle. Microwave and dishwasher safe.
+                        </p>
+                        <div class="flex items-baseline gap-4 mb-8">
+                            <span class="text-5xl font-bold text-secondary">$22.00</span>
+                            <span class="text-2xl text-gray-dark line-through">$28.00</span>
                         </div>
-                    </a>
+                        <a href="product-detail.html" class="inline-block bg-primary text-white font-bold py-4 px-10 rounded-lg text-lg transition duration-300 hover:bg-primary-dark">
+                            Shop The Deal
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -251,7 +287,7 @@
     </main>
 
     <!-- Global Footer (Your new style) -->
-    <footer class="bg-primary text-gray-medium mt-20">
+    <footer class="bg-primary text-gray-medium">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
                 <!-- About -->
