@@ -98,159 +98,156 @@
 
     <!-- Main Content Area -->
     <main>
-        
-        <!-- Main Product Detail Container -->
-        <!-- This container is a skeleton until the JS populates it. -->
-        <div id="product-detail-container" class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            
-            <!-- Skeleton Loader State -->
-            <div id="product-skeleton" class="animate-pulse">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Image Gallery Skeleton -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Product Gallery -->
+                <div class="space-y-4">
+                    <!-- Main Image -->
                     <div>
-                        <div class="w-full h-[350px] md:h-[500px] bg-gray-200 rounded-lg"></div>
-                        <div class="flex gap-4 mt-4">
-                            <div class="w-24 h-24 bg-gray-200 rounded-lg"></div>
-                            <div class="w-24 h-24 bg-gray-200 rounded-lg"></div>
-                            <div class="w-24 h-24 bg-gray-200 rounded-lg"></div>
-                            <div class="w-24 h-24 bg-gray-200 rounded-lg"></div>
-                        </div>
+                        <img id="main-product-image" src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+Image" alt="Main product" class="w-full h-auto object-cover rounded-lg shadow-md border border-gray-medium">
                     </div>
+                    <!-- Thumbnails -->
+                    <div class="grid grid-cols-5 gap-4">
+                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+Image" alt="Thumbnail 1" class="gallery-thumbnail rounded-lg active">
+                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+2" alt="Thumbnail 2" class="gallery-thumbnail rounded-lg">
+                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+3" alt="Thumbnail 3" class="gallery-thumbnail rounded-lg">
+                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+4" alt="Thumbnail 4" class="gallery-thumbnail rounded-lg">
+                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+5" alt="Thumbnail 5" class="gallery-thumbnail rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="space-y-6">
+                    <h1 id="product-name" class="text-4xl font-bold text-primary">Cordless Drill Set</h1>
+                    <p id="product-category" class="text-lg text-gray-dark">Tools & DIY</p>
                     
-                    <!-- Product Info Skeleton -->
-                    <div>
-                        <div class="h-5 bg-gray-200 rounded w-1/4 mb-4"></div> <!-- Category -->
-                        <div class="h-10 bg-gray-200 rounded w-3/4 mb-4"></div> <!-- Title -->
-                        <div class="h-9 bg-gray-200 rounded w-1/3 mb-6"></div> <!-- Price -->
-                        <div class="h-5 bg-gray-200 rounded w-full mb-2"></div> <!-- Description line 1 -->
-                        <div class="h-5 bg-gray-200 rounded w-full mb-2"></div> <!-- Description line 2 -->
-                        <div class="h-5 bg-gray-200 rounded w-3/4 mb-8"></div> <!-- Description line 3 -->
+                    <p id="product-price" class="text-5xl font-bold text-secondary">$129.99</p>
 
-                        <div class="h-12 bg-gray-200 rounded-lg w-full"></div> <!-- Add to Cart section -->
+                    <p id="product-description" class="text-lg text-gray-dark leading-relaxed">
+                        High-performance 20V MAX cordless drill with two batteries and a complete accessory kit. Perfect for all your home DIY projects, from simple repairs to building furniture. Features a compact, lightweight design.
+                    </p>
+
+                    <div class="flex items-center gap-6">
+                        <!-- Quantity Selector -->
+                        <div class="quantity-input-wrapper">
+                            <button class="quantity-btn quantity-minus" data-action="minus" type="button">&minus;</button>
+                            <input type="number" id="product-quantity" class="quantity-input" value="1" min="1">
+                            <button class="quantity-btn quantity-plus" data-action="plus" type="button">&plus;</button>
+                        </div>
+                        <!-- Add to Cart Button -->
+                        <button id="add-to-cart-pdp" class="flex-1 bg-primary text-white py-4 px-8 rounded-lg font-bold text-lg hover:bg-primary-dark transition duration-300">
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- 
-              This is the hidden template that JS will clone and populate with real data.
-              The `hidden` class is removed by JS once data is loaded.
-            -->
-            <div id="product-content" class="hidden">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Image Gallery -->
-                    <div>
-                        <img id="main-product-image" src="" alt="Main product image" class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-md border border-gray-medium">
-                        <div id="product-thumbnail-gallery" class="flex gap-4 mt-4">
-                            <!-- Thumbnails will be injected here by JS -->
-                        </div>
+            <!-- Tabs: Description, Specs, Reviews -->
+            <div class="mt-16">
+                <!-- Tab Buttons -->
+                <div class="border-b border-gray-medium">
+                    <nav class="flex space-x-8">
+                        <button class="tab-button active" data-tab="tab-description">Description</button>
+                        <button class="tab-button" data-tab="tab-specs">Specifications</button>
+                        <button class="tab-button" data-tab="tab-reviews">Reviews</button>
+                    </nav>
+                </div>
+                <!-- Tab Panels -->
+                <div class="py-8">
+                    <!-- Description Panel -->
+                    <div id="tab-description" class="tab-panel active space-y-4 text-gray-dark leading-relaxed">
+                        <p>This comprehensive cordless drill set provides the power and versatility needed for any project. The high-performance 20V MAX motor delivers 300 unit watts out (UWO) of power, making it easy to drill through wood, plastic, and metal.</p>
+                        <p>The lightweight, compact design allows you to work in tight spaces for extended periods without fatigue. An ergonomic handle provides comfort and control. The set includes two 20V MAX lithium-ion batteries, a charger, and a 30-piece accessory kit, all neatly organized in a durable storage case.</p>
                     </div>
-    
-                    <!-- Product Info -->
-                    <div>
-                        <p id="product-category" class="text-secondary font-semibold uppercase tracking-wide"></p>
-                        <h1 id="product-name" class="text-4xl font-bold my-2"></h1>
-                        <p id="product-price" class="text-4xl font-bold text-secondary mb-6"></p>
-                        <p id="product-description" class="text-lg text-gray-dark leading-relaxed mb-8"></p>
-    
-                        <!-- Actions -->
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <div class="quantity-input-wrapper">
-                                <button class="quantity-btn quantity-minus" data-action="minus" type="button">&minus;</button>
-                                <input id="product-quantity" type="number" class="quantity-input" value="1" min="1">
-                                <button class="quantity-btn quantity-plus" data-action="plus" type="button">&plus;</button>
+                    <!-- Specifications Panel -->
+                    <div id="tab-specs" class="tab-panel">
+                        <ul class="list-disc list-inside space-y-2 text-gray-dark">
+                            <li><strong>Voltage:</strong> 20V MAX*</li>
+                            <li><strong>Chuck Size:</strong> 1/2-Inch</li>
+                            <li><strong>Speed:</strong> 0-450 / 0-1,500 RPM</li>
+                            <li><strong>Battery Type:</strong> Lithium-Ion</li>
+                            <li><strong>Includes:</strong> (1) Drill/Driver, (2) 20V MAX* Batteries, (1) Charger, (30) Assorted Bits, (1) Storage Case</li>
+                        </ul>
+                    </div>
+                    <!-- Reviews Panel -->
+                    <div id="tab-reviews" class="tab-panel space-y-6">
+                        <!-- Review 1 -->
+                        <div class="border-b border-gray-medium pb-4">
+                            <div class="flex items-center mb-1">
+                                <span class="font-bold text-primary">Jane D.</span>
+                                <span class="ml-4 text-sm text-gray-dark">Verified Purchaser</span>
                             </div>
-                            <button id="add-to-cart-pdp" class="w-full sm:w-auto flex-1 bg-primary text-white py-3 px-8 rounded-lg font-bold text-lg hover:bg-primary-dark transition duration-300">
-                                Add to Cart
-                            </button>
+                            <p class="text-secondary font-bold mb-2">★★★★★</p>
+                            <p class="text-gray-dark">This drill is fantastic! It's lightweight but has plenty of power for everything I've thrown at it. The battery life is also excellent.</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Tabs (Description, Specs, Reviews) -->
-                <div class="mt-20">
-                    <div class="border-b border-gray-medium">
-                        <nav id="tab-buttons" class="flex -mb-px space-x-8">
-                            <button class="tab-button active" data-tab="tab-description">Description</button>
-                            <button class="tab-button" data-tab="tab-specs">Specifications</button>
-                            <button class="tab-button" data-tab="tab-reviews">Reviews (0)</button>
-                        </nav>
-                    </div>
-                    <div id="tab-panels" class="py-8">
-                        <div id="tab-description" class="tab-panel active prose max-w-none text-gray-dark leading-relaxed">
-                            <p>Full product description will go here, dynamically loaded from the API. This text provides more detail about the item's features, benefits, and usage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div id="tab-specs" class="tab-panel prose max-w-none text-gray-dark">
-                            <ul>
-                                <li><strong>Weight:</strong> 5.5 lbs</li>
-                                <li><strong>Dimensions:</strong> 12" x 8" x 4"</li>
-                                <li><strong>Material:</strong> Hardened Steel, ABS Plastic</li>
-                                <li><strong>Voltage:</strong> 20V MAX</li>
-                                <li><strong>Warranty:</strong> 2-Year Limited</li>
-                            </ul>
-                        </div>
-                        <div id="tab-reviews" class="tab-panel text-gray-dark">
-                            <p>No reviews yet. Be the first to review this product!</p>
-                            <!-- Review form could go here -->
+                        <!-- Review 2 -->
+                        <div class="border-b border-gray-medium pb-4">
+                            <div class="flex items-center mb-1">
+                                <span class="font-bold text-primary">Mark S.</span>
+                                <span class="ml-4 text-sm text-gray-dark">Verified Purchaser</span>
+                            </div>
+                            <p class="text-secondary font-bold mb-2">★★★★☆</p>
+                            <p class="text-gray-dark">Great drill for the price. The included bit set is very handy. My only complaint is the case feels a bit flimsy, but the drill itself is solid.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- "You Might Also Like" Section -->
-            <section class="mt-20 pt-16 border-t border-gray-medium">
+            <!-- You Might Also Like -->
+            <section class="py-16 mt-16 border-t border-gray-medium">
                 <h2 class="text-3xl font-bold text-center mb-10">You Might Also Like</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Placeholder Product 1 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <a href="product-detail.html?id=prod-009" class="block">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product" alt="Product" class="w-full h-64 object-cover">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-category="tools-diy" data-price="79.99">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+1" alt="Wrench Set" class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="product-title font-bold text-lg truncate">Wrench Set (40-Piece)</h3>
                                 <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$79.99</p>
-                                <button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
                             </div>
                         </a>
                     </div>
-                    <!-- Placeholder Product 2 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <a href="product-detail.html?id=prod-014" class="block">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product" alt="Product" class="w-full h-64 object-cover">
+                    <!-- Product 2 -->
+                    <div class="product-card" data-category="tools-diy" data-price="25.99">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+2" alt="Digital Multimeter" class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="product-title font-bold text-lg truncate">Digital Multimeter</h3>
                                 <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$25.99</p>
-                                <button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
                             </div>
                         </a>
                     </div>
-                    <!-- Placeholder Product 3 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <a href="product-detail.html?id=prod-019" class="block">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product" alt="Product" class="w-full h-64 object-cover">
-                            <div class="p-6">
-                                <h3 class="product-title font-bold text-lg truncate">Hammer Drill</h3>
-                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$149.99</p>
-                                <button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Placeholder Product 4 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                        <a href="product-detail.html?id=prod-024" class="block">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product" alt="Product" class="w-full h-64 object-cover">
+                    <!-- Product 3 -->
+                    <div class="product-card" data-category="tools-diy" data-price="16.99">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+3" alt="Safety Goggles" class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="product-title font-bold text-lg truncate">Safety Goggles (3-Pack)</h3>
                                 <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$16.99</p>
-                                <button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 pointer-events-none">View Details</button>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card" data-category="tools-diy" data-price="34.99">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+4" alt="Toolbox" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="product-title font-bold text-lg truncate">Toolbox (19-Inch)</h3>
+                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$34.99</p>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
                             </div>
                         </a>
                     </div>
                 </div>
             </section>
         </div>
-
     </main>
 
-    <!-- Global Footer -->
+    <!-- Global Footer (Your new style) -->
     <footer class="bg-primary text-gray-medium mt-20">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8">
