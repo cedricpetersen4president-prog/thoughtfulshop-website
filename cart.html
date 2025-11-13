@@ -1,4 +1,4 @@
-﻿<head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Thoughtful Shop - Your Cart</title>
@@ -71,9 +71,11 @@
                     </button>
 
                     <!-- Cart -->
-                    <a href="cart.html" class="ml-2 p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
+                    <a href="cart.html" class="cart-icon-wrapper ml-2 p-2 text-gray-dark hover:text-primary rounded-full hover:bg-gray-light">
                         <span class="sr-only">Cart</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3"Y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <!-- NEW: Cart Indicator Dot -->
+                        <span id="cart-indicator-dot" class=""></span>
                     </a>
                     
                     <!-- Mobile Menu Button -->
@@ -113,7 +115,8 @@
                         <div class="cart-item flex flex-col sm:flex-row items-center gap-6 p-6 bg-white rounded-lg shadow-sm border border-gray-medium">
                             <img src="https://placehold.co/150x150/F0F0F0/AAA?text=Product+1" alt="Product" class="w-32 h-32 object-cover rounded-lg">
                             <div class="flex-1">
-                                <a href="product-detail.html" class="font-bold text-lg text-primary hover:text-secondary">Cordless Drill Set</a>
+                                <!-- UPDATED: Added data-id and class -->
+                                <a href="product-detail.html" class="cart-item-name font-bold text-lg text-primary hover:text-secondary" data-id="prod-drill">Cordless Drill Set</a>
                                 <p class="text-gray-dark">Tools & DIY</p>
                                 <button class="remove-item text-sm text-red-600 hover:text-red-800 font-medium mt-2">Remove</button>
                             </div>
@@ -129,7 +132,8 @@
                         <div class="cart-item flex flex-col sm:flex-row items-center gap-6 p-6 bg-white rounded-lg shadow-sm border border-gray-medium">
                             <img src="https://placehold.co/150x150/E0E0E0/999?text=Product+2" alt="Product" class="w-32 h-32 object-cover rounded-lg">
                             <div class="flex-1">
-                                <a href="product-detail.html" class="font-bold text-lg text-primary hover:text-secondary">Premium Dog Food</a>
+                                <!-- UPDATED: Added data-id and class -->
+                                <a href="product-detail.html" class="cart-item-name font-bold text-lg text-primary hover:text-secondary" data-id="prod-dog-food">Premium Dog Food</a>
                                 <p class="text-gray-dark">Pet Supplies</p>
                                 <button class="remove-item text-sm text-red-600 hover:text-red-800 font-medium mt-2">Remove</button>
                             </div>
