@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Thoughtful Shop - Product</title>
+    <title>The Thoughtful Shop - Product Detail</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -98,45 +98,40 @@
 
     <!-- Main Content Area -->
     <main>
+        
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
                 <!-- Product Gallery -->
-                <div class="space-y-4">
-                    <!-- Main Image -->
-                    <div>
-                        <img id="main-product-image" src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+Image" alt="Main product" class="w-full h-auto object-cover rounded-lg shadow-md border border-gray-medium">
-                    </div>
-                    <!-- Thumbnails -->
-                    <div class="grid grid-cols-5 gap-4">
-                        <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+Image" alt="Thumbnail 1" class="gallery-thumbnail rounded-lg active">
-                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+2" alt="Thumbnail 2" class="gallery-thumbnail rounded-lg">
-                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+3" alt="Thumbnail 3" class="gallery-thumbnail rounded-lg">
-                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+4" alt="Thumbnail 4" class="gallery-thumbnail rounded-lg">
-                        <img src="https://placehold.co/600x600/e2e8f0/333?text=Thumb+5" alt="Thumbnail 5" class="gallery-thumbnail rounded-lg">
+                <div>
+                    <img id="main-product-image" src="https://placehold.co/600x600/F0F0F0/AAA?text=Drill+Set" alt="Cordless Drill Set" class="w-full rounded-lg shadow-md border border-gray-medium">
+                    <div class="grid grid-cols-5 gap-4 mt-4">
+                        <img src="https://placehold.co/150x150/F0F0F0/AAA?text=Drill+Set" alt="Thumbnail 1" class="gallery-thumbnail rounded active">
+                        <img src="https://placehold.co/150x150/F0F0F0/AAA?text=Drill+Battery" alt="Thumbnail 2" class="gallery-thumbnail rounded">
+                        <img src="https://placehold.co/150x150/F0F0F0/AAA?text=Drill+Bits" alt="Thumbnail 3" class="gallery-thumbnail rounded">
+                        <img src="https://placehold.co/150x150/F0F0F0/AAA?text=Case" alt="Thumbnail 4" class="gallery-thumbnail rounded">
+                        <img src="https://placehold.co/150x150/F0F0F0/AAA?text=In+Use" alt="Thumbnail 5" class="gallery-thumbnail rounded">
                     </div>
                 </div>
 
-                <!-- Product Details -->
-                <div class="space-y-6">
-                    <h1 id="product-name" class="text-4xl font-bold text-primary">Cordless Drill Set</h1>
-                    <p id="product-category" class="text-lg text-gray-dark">Tools & DIY</p>
-                    
-                    <p id="product-price" class="text-5xl font-bold text-secondary">$129.99</p>
+                <!-- Product Info -->
+                <div>
+                    <h1 id="product-name" class="text-4xl font-bold">Cordless Drill Set</h1>
+                    <p class="text-gray-dark text-lg mt-2">Tools & DIY</p>
+                    <p class="text-4xl font-bold text-secondary my-6">$129.99</p>
 
-                    <p id="product-description" class="text-lg text-gray-dark leading-relaxed">
-                        High-performance 20V MAX cordless drill with two batteries and a complete accessory kit. Perfect for all your home DIY projects, from simple repairs to building furniture. Features a compact, lightweight design.
+                    <p class="text-gray-dark text-lg leading-relaxed mb-8">
+                        The ultimate 20V MAX cordless drill kit for all your home DIY and professional needs. This set includes two high-capacity lithium-ion batteries, a fast charger, and a 40-piece accessory kit, all in a durable carrying case.
                     </p>
 
-                    <div class="flex items-center gap-6">
-                        <!-- Quantity Selector -->
+                    <!-- Quantity & Add to Cart -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                         <div class="quantity-input-wrapper">
-                            <button class="quantity-btn quantity-minus" data-action="minus" type="button">&minus;</button>
-                            <input type="number" id="product-quantity" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn quantity-plus" data-action="plus" type="button">&plus;</button>
+                            <button class="quantity-btn quantity-minus" type="button">&minus;</button>
+                            <input id="product-quantity" type="number" class="quantity-input" value="1" min="1">
+                            <button class="quantity-btn quantity-plus" type="button">&plus;</button>
                         </div>
-                        <!-- Add to Cart Button -->
-                        <button id="add-to-cart-pdp" class="flex-1 bg-primary text-white py-4 px-8 rounded-lg font-bold text-lg hover:bg-primary-dark transition duration-300">
+                        <button id="add-to-cart-pdp" class="w-full sm:w-auto bg-primary text-white py-3 px-12 rounded-lg font-bold text-lg hover:bg-primary-dark transition duration-300">
                             Add to Cart
                         </button>
                     </div>
@@ -144,64 +139,102 @@
             </div>
 
             <!-- Tabs: Description, Specs, Reviews -->
-            <div class="mt-16">
+            <div class="mt-20">
                 <!-- Tab Buttons -->
                 <div class="border-b border-gray-medium">
-                    <nav class="flex space-x-8">
-                        <button class="tab-button active" data-tab="tab-description">Description</button>
-                        <button class="tab-button" data-tab="tab-specs">Specifications</button>
-                        <button class="tab-button" data-tab="tab-reviews">Reviews</button>
-                    </nav>
+                    <button class="tab-button active" data-tab="tab-description">Description</button>
+                    <button class="tab-button" data-tab="tab-specs">Specifications</button>
+                    <button class="tab-button" data-tab="tab-reviews">Reviews (3)</button>
                 </div>
                 <!-- Tab Panels -->
-                <div class="py-8">
+                <div class="py-8 text-gray-dark text-lg leading-relaxed">
+                    
                     <!-- Description Panel -->
-                    <div id="tab-description" class="tab-panel active space-y-4 text-gray-dark leading-relaxed">
-                        <p>This comprehensive cordless drill set provides the power and versatility needed for any project. The high-performance 20V MAX motor delivers 300 unit watts out (UWO) of power, making it easy to drill through wood, plastic, and metal.</p>
-                        <p>The lightweight, compact design allows you to work in tight spaces for extended periods without fatigue. An ergonomic handle provides comfort and control. The set includes two 20V MAX lithium-ion batteries, a charger, and a 30-piece accessory kit, all neatly organized in a durable storage case.</p>
-                    </div>
-                    <!-- Specifications Panel -->
-                    <div id="tab-specs" class="tab-panel">
-                        <ul class="list-disc list-inside space-y-2 text-gray-dark">
-                            <li><strong>Voltage:</strong> 20V MAX*</li>
-                            <li><strong>Chuck Size:</strong> 1/2-Inch</li>
-                            <li><strong>Speed:</strong> 0-450 / 0-1,500 RPM</li>
-                            <li><strong>Battery Type:</strong> Lithium-Ion</li>
-                            <li><strong>Includes:</strong> (1) Drill/Driver, (2) 20V MAX* Batteries, (1) Charger, (30) Assorted Bits, (1) Storage Case</li>
+                    <div id="tab-description" class="tab-panel active prose max-w-none">
+                        <p>Tackle any project with confidence. This 20V MAX Cordless Drill/Driver is engineered for power and versatility. Its high-performance motor delivers 300 unit watts out (UWO) of power, ideal for a wide range of drilling and fastening applications. The 1/2-inch single-sleeve ratcheting chuck provides a tight bit grip, and the ergonomic handle ensures comfort and control during extended use.</p>
+                        <ul class="list-disc pl-6 space-y-2 mt-4">
+                            <li><strong>High-Performance Motor:</strong> Delivers 300 UWO of power for efficient performance.</li>
+                            <li><strong>Dual-Speed Range:</strong> Features 0-450 / 0-1500 RPM for optimal speed control in drilling and fastening.</li>
+                            <li><strong>Long-Lasting Batteries:</strong> Includes two 20V MAX lithium-ion batteries for minimal downtime.</li>
+                            <li><strong>Built-in LED:</strong> Illuminates dark workspaces with a 20-second trigger release delay.</li>
+                            <li><strong>Compact & Lightweight:</strong> Designed to fit into tight areas and reduce user fatigue.</li>
                         </ul>
                     </div>
+
+                    <!-- Specifications Panel -->
+                    <div id="tab-specs" class="tab-panel prose max-w-none">
+                        <table class="w-full text-left">
+                            <tbody class="divide-y divide-gray-medium">
+                                <tr class="bg-gray-light">
+                                    <td class="py-3 px-4 font-medium">Voltage</td>
+                                    <td class="py-3 px-4">20V MAX*</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">Chuck Size</td>
+                                    <td class="py-3 px-4">1/2-inch (13mm)</td>
+                                </tr>
+                                <tr class="bg-gray-light">
+                                    <td class="py-3 px-4 font-medium">Speed Settings</td>
+                                    <td class="py-3 px-4">2 (0-450 / 0-1500 RPM)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">Battery Type</td>
+                                    <td class="py-3 px-4">Lithium-Ion</td>
+                                </tr>
+                                <tr class="bg-gray-light">
+                                    <td class="py-3 px-4 font-medium">Kit Includes</td>
+                                    <td class="py-3 px-4">Drill/Driver, (2) 20V MAX* Batteries, Fast Charger, 40-Piece Bit Set, Carrying Case</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">Weight (Tool Only)</td>
+                                    <td class="py-3 px-4">2.8 lbs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <!-- Reviews Panel -->
-                    <div id="tab-reviews" class="tab-panel space-y-6">
+                    <div id="tab-reviews" class="tab-panel space-y-8">
                         <!-- Review 1 -->
-                        <div class="border-b border-gray-medium pb-4">
-                            <div class="flex items-center mb-1">
-                                <span class="font-bold text-primary">Jane D.</span>
-                                <span class="ml-4 text-sm text-gray-dark">Verified Purchaser</span>
+                        <div class="border-b border-gray-medium pb-6">
+                            <div class="flex items-center mb-2">
+                                <span class="text-secondary font-bold text-2xl">★★★★★</span>
+                                <h4 class="text-xl font-bold ml-4 text-primary">Powerful and Reliable!</h4>
                             </div>
-                            <p class="text-secondary font-bold mb-2">★★★★★</p>
-                            <p class="text-gray-dark">This drill is fantastic! It's lightweight but has plenty of power for everything I've thrown at it. The battery life is also excellent.</p>
+                            <p class="mb-3">This drill is a beast. I used it to build a deck and it didn't slow down once. The batteries last forever. Highly recommend.</p>
+                            <p class="text-sm text-gray-dark"><strong>Mark T.</strong> on July 15, 2024</p>
                         </div>
                         <!-- Review 2 -->
-                        <div class="border-b border-gray-medium pb-4">
-                            <div class="flex items-center mb-1">
-                                <span class="font-bold text-primary">Mark S.</span>
-                                <span class="ml-4 text-sm text-gray-dark">Verified Purchaser</span>
+                        <div class="border-b border-gray-medium pb-6">
+                            <div class="flex items-center mb-2">
+                                <span class="text-secondary font-bold text-2xl">★★★★☆</span>
+                                <h4 class="text-xl font-bold ml-4 text-primary">Great value for the price</h4>
                             </div>
-                            <p class="text-secondary font-bold mb-2">★★★★☆</p>
-                            <p class="text-gray-dark">Great drill for the price. The included bit set is very handy. My only complaint is the case feels a bit flimsy, but the drill itself is solid.</p>
+                            <p class="mb-3">Really good kit for the money. The drill is lightweight and easy to handle. My only complaint is the carrying case feels a bit flimsy, but the drill itself is solid. The accessory kit is a nice bonus.</p>
+                            <p class="text-sm text-gray-dark"><strong>Sarah J.</strong> on July 11, 2024</p>
+                        </div>
+                        <!-- Review 3 -->
+                        <div class="border-b border-gray-medium pb-6">
+                            <div class="flex items-center mb-2">
+                                <span class="text-secondary font-bold text-2xl">★★★★★</span>
+                                <h4 class="text-xl font-bold ml-4 text-primary">Perfect for around the house</h4>
+                            </div>
+                            <p class="mb-3">I bought this for small projects like hanging pictures and assembling furniture. It's perfect. The light is super helpful, and it's not too heavy for me to use. Very happy with my purchase!</p>
+                            <p class="text-sm text-gray-dark"><strong>Emily R.</strong> on June 30, 2024</p>
                         </div>
                     </div>
+
                 </div>
             </div>
 
-            <!-- You Might Also Like -->
-            <section class="py-16 mt-16 border-t border-gray-medium">
+            <!-- "You Might Also Like" Section -->
+            <section class="mt-20 pt-16 border-t border-gray-medium">
                 <h2 class="text-3xl font-bold text-center mb-10">You Might Also Like</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Product 1 -->
-                    <div class="product-card" data-category="tools-diy" data-price="79.99">
+                    <div class="product-card">
                         <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+1" alt="Wrench Set" class="w-full h-64 object-cover">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+1" alt="Product 1" class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="product-title font-bold text-lg truncate">Wrench Set (40-Piece)</h3>
                                 <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$79.99</p>
@@ -210,20 +243,9 @@
                         </a>
                     </div>
                     <!-- Product 2 -->
-                    <div class="product-card" data-category="tools-diy" data-price="25.99">
+                    <div class="product-card">
                         <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+2" alt="Digital Multimeter" class="w-full h-64 object-cover">
-                            <div class="p-6">
-                                <h3 class="product-title font-bold text-lg truncate">Digital Multimeter</h3>
-                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$25.99</p>
-                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</button>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Product 3 -->
-                    <div class="product-card" data-category="tools-diy" data-price="16.99">
-                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+3" alt="Safety Goggles" class="w-full h-64 object-cover">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+2" alt="Product 2" class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="product-title font-bold text-lg truncate">Safety Goggles (3-Pack)</h3>
                                 <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$16.99</p>
@@ -231,10 +253,10 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Product 4 -->
-                    <div class="product-card" data-category="tools-diy" data-price="34.99">
+                    <!-- Product 3 -->
+                    <div class="product-card">
                         <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
-                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Related+4" alt="Toolbox" class="w-full h-64 object-cover">
+                            <img src="httpsStorage.co/600x600/F0F0F0/AAA?text=Product+3" alt="Product 3" class="w-full h-64 object-cover">
                             <div class="p-6">
                                 <h3 class="product-title font-bold text-lg truncate">Toolbox (19-Inch)</h3>
                                 <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$34.99</p>
@@ -242,9 +264,21 @@
                             </div>
                         </a>
                     </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <a href="product-detail.html" class="block bg-white rounded-lg shadow-md overflow-hidden border border-gray-medium group transition-shadow hover:shadow-xl">
+                            <img src="https://placehold.co/600x600/F0F0F0/AAA?text=Product+4" alt="Product 4" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="product-title font-bold text-lg truncate">Hammer Drill</h3>
+                                <p class="product-price text-xl font-bold text-secondary mt-2 mb-4">$149.99</p>
+                                <button class="add-to-cart-btn w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300">Add to Cart</to-cart-btn>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>
+
     </main>
 
     <!-- Global Footer (Your new style) -->
