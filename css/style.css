@@ -1,4 +1,4 @@
-﻿/* --- Toast Notification (from your inspiration file) --- */
+/* --- Toast Notification (from your inspiration file) --- */
 .toast-notification {
     position: fixed;
     bottom: 20px;
@@ -178,5 +178,33 @@
 }
 
 .filter-pill-remove:hover {
+    opacity: 1;
+}
+
+/* --- Cart Indicator Badge --- */
+/* Wrapper to position the dot */
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* The dot itself */
+#cart-indicator-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 0.6rem; /* 9.6px */
+    height: 0.6rem; /* 9.6px */
+    background-color: #AE9673; /* secondary */
+    border-radius: 9999px;
+    border: 1px solid #fff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform: scale(0); /* Hidden by default */
+    opacity: 0;
+}
+
+/* Show state */
+#cart-indicator-dot.visible {
+    transform: scale(1);
     opacity: 1;
 }
