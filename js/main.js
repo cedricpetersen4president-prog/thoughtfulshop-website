@@ -2,6 +2,65 @@
 let slideshowInterval = null;
 let currentSlideIndex = 0;
 
+/******************************************************************************
+ * NEW CART LOGIC (using localStorage)
+ *****************************************************************************/
+
+/**
+ * Retrieves the cart from localStorage.
+ * @returns {Array} An array of cart items.
+ */
+function getCart() {
+    return JSON.parse(localStorage.getItem('theThoughtfulShopCart')) || [];
+}
+
+/**
+ * Saves the cart to localStorage.
+ * @param {Array} cart - The cart array to save.
+ */
+function saveCart(cart) {
+    localStorage.setItem('theThoughtfulShopCart', JSON.stringify(cart));
+}
+
+/**
+ * Updates the visibility of the cart indicator dot.
+ */
+function updateCartIndicator() {
+    const indicator = document.getElementById('cart-indicator-dot');
+    const cart = getCart();
+    
+    if (indicator) {
+        // Show if cart has items, hide if empty
+        indicator.classList.toggle('visible', cart.length > 0);
+    }
+}
+
+/**
+ * Adds an item to the cart.
+ * (This is a simple version. A real app would check for existing items and update quantity.)
+ * @param {string} id - The product ID (or name).
+ * @param {string} name - The product name.
+ * @param {number} price - The product price.
+ * @param {number} quantity - The quantity.
+ */
+function addItemToCart(id, name, price, quantity) {
+    let cart = getCart();
+    
+    // Check if item already exists
+    const existingItemIndex = cart.findIndex(item => item.id === id);
+    
+    if (existingItemIndex > -1) {
+        // Update quantity
+        cart[existingItemIndex].quantity += quantity;
+    } else {
+        // Add new item
+        cart.push({ id, name, price, quantity });
+    }
+    
+    saveCart(cart);
+    updateCartIndicator();
+}
+
 /**
  * Shows a custom toast notification
  * @param {string} message - The message to display.
@@ -68,14 +127,23 @@ function updateCartTotals() {
     const shipping = 15.00; // Fixed shipping
     const taxRate = 0.08; // 8% tax
 
+    let newCart = []; // To resync localStorage
+
     cartItems.forEach(item => {
         const priceInput = item.querySelector('.quantity-input');
         const price = parseFloat(priceInput.dataset.price);
         const quantity = parseInt(priceInput.value);
         const total = price * quantity;
         
+        // Find product name and id from the item
+        const productName = item.querySelector('.cart-item-name').textContent;
+        const productId = item.querySelector('.cart-item-name').dataset.id; // We'll add this dataset to cart.html
+
         item.querySelector('.item-total').textContent = `$${total.toFixed(2)}`;
         subtotal += total;
+
+        // Add to our new cart array for resyncing
+        newCart.push({ id: productId, name: productName, price: price, quantity: quantity });
     });
 
     const tax = subtotal * taxRate;
@@ -85,6 +153,10 @@ function updateCartTotals() {
     document.getElementById('cart-shipping').textContent = `$${shipping.toFixed(2)}`;
     document.getElementById('cart-tax').textContent = `$${tax.toFixed(2)}`;
     document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+
+    // Resync localStorage with what's on the page
+    saveCart(newCart);
+    updateCartIndicator();
 
     // Show/hide empty cart message
     const emptyCartMessage = document.getElementById('empty-cart-message');
@@ -102,6 +174,9 @@ function updateCartTotals() {
 // --- Wait for the DOM to be ready ---
 document.addEventListener("DOMContentLoaded", () => {
     
+    // --- NEW: Load cart & update indicator on every page load ---
+    updateCartIndicator();
+
     // --- Mobile Menu Toggle ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -130,8 +205,25 @@ document.addEventListener("DOMContentLoaded", () => {
             // Get product name
             const productCard = button.closest('.product-card');
             if (productCard) {
-                const productTitle = productCard.querySelector('.product-title').textContent;
-                showToast(`${productTitle} added to cart!`);
+                // We need to get all product data. Let's assume it's on the elements.
+                // NOTE: This requires data-attributes on the product cards, which are in the static products.html.
+                // We'll add placeholder data for now.
+                const productTitleEl = productCard.querySelector('.product-title');
+                const productPriceEl = productCard.querySelector('.product-price');
+                
+                if (productTitleEl && productPriceEl) {
+                    const title = productTitleEl.textContent;
+                    // Extract number from price string like "$129.99"
+                    const price = parseFloat(productPriceEl.textContent.replace('$', ''));
+                    
+                    addItemToCart(title, title, price, 1); // Using title as ID for simplicity
+                    showToast(`${title} added to cart!`);
+                } else {
+                    // Fallback for product cards without price (like 'You Might Also Like')
+                    const title = productTitleEl ? productTitleEl.textContent : 'Item';
+                    addItemToCart(title, title, 0, 1);
+                    showToast(`${title} added to cart!`);
+                }
             }
         });
     });
@@ -144,6 +236,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const tabPanels = document.querySelectorAll('.tab-panel');
     const pdpAddToCartBtn = document.getElementById('add-to-cart-pdp');
     const pdpProductName = document.getElementById('product-name');
+    const pdpProductPriceEl = document.querySelector('.text-4xl.font-bold.text-secondary.my-6'); // Grabbing the price
+    const pdpQuantityInput = document.getElementById('product-quantity');
 
     // PDP: Image Gallery
     if (mainImage && thumbnails.length > 0) {
@@ -177,10 +271,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // PDP: Add to Cart button
-    if (pdpAddToCartBtn && pdpProductName) {
+    if (pdpAddToCartBtn && pdpProductName && pdpProductPriceEl && pdpQuantityInput) {
         pdpAddToCartBtn.addEventListener('click', () => {
             const productName = pdpProductName.textContent;
-            const quantity = document.getElementById('product-quantity').value;
+            const quantity = parseInt(pdpQuantityInput.value);
+            const price = parseFloat(pdpProductPriceEl.textContent.replace('$', ''));
+            
+            addItemToCart(productName, productName, price, quantity); // Use name as ID
             showToast(`${quantity} x ${productName} added to cart!`);
         });
     }
@@ -234,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
                 const cartItem = event.target.closest('.cart-item');
                 cartItem.remove();
-                updateCartTotals();
+                updateCartTotals(); // This will now resync localStorage and update the indicator
                 showToast("Item removed from cart.");
             }
         });
